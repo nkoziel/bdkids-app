@@ -47,10 +47,328 @@
     fetch(link.href, fetchOpts);
   }
 })();
-document.getElementById("results").textContent = "Bibliothèque vide pour le moment.";</script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+let toastTimer = null;
+function toast(msg) {
+  const old = document.querySelector(".toast");
+  if (old) old.remove();
+  const el = document.createElement("div");
+  el.className = "toast";
+  el.textContent = msg;
+  document.body.appendChild(el);
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.remove(), 3200);
+}
+function closeModal() {
+  const h = $("modalHost");
+  if (h) h.innerHTML = "";
+}
+let quotaWarned = false;
+const store = {
+  get(k) {
+    try {
+      const v = localStorage.getItem(k);
+      return v ? JSON.parse(v) : null;
+    } catch (e) {
+      return null;
+    }
+  },
+  set(k, v) {
+    try {
+      localStorage.setItem(k, JSON.stringify(v));
+      return true;
+    } catch (e) {
+      if (!quotaWarned) {
+        quotaWarned = true;
+        toast("Stockage plein — les derniers changements n'ont pas ete sauvegardes.");
+      }
+      console.error("[bdkids] localStorage write refused for", k, e);
+      return false;
+    }
+  },
+  del(k) {
+    try {
+      localStorage.removeItem(k);
+    } catch (e) {
+    }
+  }
+};
+const LIB_KEY = "bdkids:lib:v1";
+let LIB = store.get(LIB_KEY) || {};
+function saveLib() {
+  return store.set(LIB_KEY, LIB);
+}
+function addSeries({ title, author = "", publisher = "", total = null, cover = "", notes = "" }) {
+  const id = uid();
+  LIB[id] = { id, title: title.trim(), author, publisher, total: total || null, owned: "", cover, notes, updatedAt: Date.now() };
+  saveLib();
+  return LIB[id];
+}
+function updateSeries(id, patch) {
+  if (!LIB[id]) return;
+  Object.assign(LIB[id], patch, { updatedAt: Date.now() });
+  saveLib();
+}
+function removeSeries(id) {
+  delete LIB[id];
+  saveLib();
+}
+const allSeries = () => Object.values(LIB).sort((a, b) => a.title.localeCompare(b.title, "fr"));
+function parseTomes(str) {
+  if (!str || typeof str !== "string") return [];
+  const out = /* @__PURE__ */ new Set();
+  for (const part of str.split(",")) {
+    const p = part.trim();
+    if (!p) continue;
+    const m = p.match(/^(\d+)\s*-\s*(\d+)$/);
+    if (m) {
+      let a = parseInt(m[1], 10), b = parseInt(m[2], 10);
+      if (a > b) [a, b] = [b, a];
+      if (b - a > 5e3) continue;
+      for (let i = a; i <= b; i++) out.add(i);
+      continue;
+    }
+    const n = parseInt(p, 10);
+    if (Number.isFinite(n) && n > 0) out.add(n);
+  }
+  return [...out].sort((x, y) => x - y);
+}
+function formatTomes(list) {
+  const nums = [...new Set((list || []).filter((n) => Number.isFinite(n) && n > 0))].sort((a, b) => a - b);
+  const parts = [];
+  let start = null, prev = null;
+  for (const n of nums) {
+    if (start === null) {
+      start = prev = n;
+      continue;
+    }
+    if (n === prev + 1) {
+      prev = n;
+      continue;
+    }
+    parts.push(start === prev ? String(start) : `${start}-${prev}`);
+    start = prev = n;
+  }
+  if (start !== null) parts.push(start === prev ? String(start) : `${start}-${prev}`);
+  return parts.join(",");
+}
+function toggleTome(str, n) {
+  const owned = parseTomes(str);
+  const i = owned.indexOf(n);
+  if (i === -1) owned.push(n);
+  else owned.splice(i, 1);
+  return formatTomes(owned);
+}
+function addRange(str, from, to) {
+  const owned = parseTomes(str);
+  const [a, b] = from <= to ? [from, to] : [to, from];
+  for (let i = a; i <= b; i++) owned.push(i);
+  return formatTomes(owned);
+}
+const countTomes = (str) => parseTomes(str).length;
+function missingTomes(str, total) {
+  if (!total || total < 1) return [];
+  const owned = new Set(parseTomes(str));
+  const out = [];
+  for (let i = 1; i <= total; i++) if (!owned.has(i)) out.push(i);
+  return out;
+}
+function gapTomes(str) {
+  const owned = parseTomes(str);
+  if (owned.length < 2) return [];
+  const have = new Set(owned);
+  const out = [];
+  for (let i = owned[0]; i < owned[owned.length - 1]; i++) if (!have.has(i)) out.push(i);
+  return out;
+}
+const GRID_SLACK = 6;
+const GRID_MIN = 12;
+function gridSize(total, maxOwned) {
+  maxOwned = maxOwned > 0 ? maxOwned : 0;
+  if (total > 0) return Math.max(total, maxOwned);
+  return Math.max(maxOwned + GRID_SLACK, GRID_MIN);
+}
+let cb = null;
+function onLibraryChanged(fn) {
+  cb = fn;
+}
+function libraryChanged() {
+  if (cb) cb();
+}
+function openSheet(id) {
+  const s = LIB[id];
+  if (!s) return;
+  render(id);
+}
+function render(id) {
+  const s = LIB[id];
+  const host = $("modalHost");
+  const owned = new Set(parseTomes(s.owned));
+  const size = gridSize(s.total, owned.size ? Math.max(...owned) : 0);
+  const cells = Array.from({ length: size }, (_, i) => i + 1).map((n) => `
+    <button class="tome ${owned.has(n) ? "owned" : ""}" data-n="${n}">${n}</button>
+  `).join("");
+  host.innerHTML = `
+    <div class="modal-backdrop">
+      <div class="modal sheet">
+        <button class="close" aria-label="Fermer">&times;</button>
+        <h2>${esc(s.title)}</h2>
+        <div class="sheet-meta">
+          ${s.author ? `<span>${esc(s.author)}</span>` : ""}
+          ${s.publisher ? `<span>${esc(s.publisher)}</span>` : ""}
+        </div>
+        <label class="field">
+          Nombre de tomes publies (si connu)
+          <input type="number" min="0" id="totalInput" value="${s.total || ""}" placeholder="?" />
+        </label>
+        <div class="range-add">
+          <input type="number" min="1" id="rangeFrom" placeholder="de" />
+          <input type="number" min="1" id="rangeTo" placeholder="a" />
+          <button id="rangeAddBtn">Ajouter la plage</button>
+        </div>
+        <div class="tome-grid">${cells}</div>
+        <label class="field">
+          Notes
+          <textarea id="notesInput" rows="2">${esc(s.notes || "")}</textarea>
+        </label>
+        <div class="sheet-actions">
+          <button class="danger" id="removeBtn">Supprimer la serie</button>
+        </div>
+      </div>
+    </div>`;
+  host.querySelector(".close").addEventListener("click", closeModal);
+  host.querySelector(".modal-backdrop").addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal-backdrop")) closeModal();
+  });
+  host.querySelectorAll(".tome").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      updateSeries(id, { owned: toggleTome(s.owned, Number(btn.dataset.n)) });
+      render(id);
+      libraryChanged();
+    });
+  });
+  $("totalInput").addEventListener("change", (e) => {
+    const v = parseInt(e.target.value, 10);
+    updateSeries(id, { total: Number.isFinite(v) && v > 0 ? v : null });
+    render(id);
+    libraryChanged();
+  });
+  $("notesInput").addEventListener("change", (e) => {
+    updateSeries(id, { notes: e.target.value });
+  });
+  $("rangeAddBtn").addEventListener("click", () => {
+    const from = parseInt($("rangeFrom").value, 10);
+    const to = parseInt($("rangeTo").value, 10);
+    if (!Number.isFinite(from) || !Number.isFinite(to)) {
+      toast("Indique un debut et une fin.");
+      return;
+    }
+    updateSeries(id, { owned: addRange(s.owned, from, to) });
+    render(id);
+    libraryChanged();
+  });
+  $("removeBtn").addEventListener("click", () => {
+    if (!confirm(`Supprimer "${s.title}" de la bibliotheque ?`)) return;
+    removeSeries(id);
+    closeModal();
+    libraryChanged();
+  });
+}
+function renderLibrary() {
+  const grid = $("libraryGrid");
+  const series = allSeries();
+  $("emptyState").style.display = series.length ? "none" : "block";
+  grid.innerHTML = series.map((s) => {
+    const owned = countTomes(s.owned);
+    const missing = missingTomes(s.owned, s.total);
+    const gaps = gapTomes(s.owned);
+    const totalLabel = s.total ? `${owned}/${s.total}` : `${owned} tome${owned > 1 ? "s" : ""}`;
+    const badge = s.total && missing.length === 0 && owned > 0 ? `<span class="badge complete">complete</span>` : gaps.length ? `<span class="badge gap">${gaps.length} trou${gaps.length > 1 ? "s" : ""}</span>` : "";
+    return `
+      <button class="card" data-id="${esc(s.id)}">
+        <div class="cover" style="${s.cover ? `background-image:url('${esc(s.cover)}')` : ""}">
+          ${s.cover ? "" : `<span class="cover-fallback">${esc(s.title.slice(0, 2).toUpperCase())}</span>`}
+        </div>
+        <div class="card-body">
+          <div class="card-title">${esc(s.title)}</div>
+          <div class="card-meta">${esc(totalLabel)} ${badge}</div>
+        </div>
+      </button>`;
+  }).join("");
+  grid.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("click", () => openSheet(card.dataset.id));
+  });
+}
+function openAdd() {
+  const host = $("modalHost");
+  host.innerHTML = `
+    <div class="modal-backdrop">
+      <div class="modal">
+        <button class="close" aria-label="Fermer">&times;</button>
+        <h2>Nouvelle serie</h2>
+        <label class="field">
+          Titre
+          <input type="text" id="addTitle" placeholder="Ariol" autofocus />
+        </label>
+        <label class="field">
+          Auteur (optionnel)
+          <input type="text" id="addAuthor" />
+        </label>
+        <label class="field">
+          Editeur (optionnel)
+          <input type="text" id="addPublisher" />
+        </label>
+        <label class="field">
+          Nombre de tomes publies (si connu)
+          <input type="number" min="0" id="addTotal" placeholder="?" />
+        </label>
+        <div class="sheet-actions">
+          <button id="addConfirm">Ajouter</button>
+        </div>
+      </div>
+    </div>`;
+  host.querySelector(".close").addEventListener("click", closeModal);
+  host.querySelector(".modal-backdrop").addEventListener("click", (e) => {
+    if (e.target.classList.contains("modal-backdrop")) closeModal();
+  });
+  $("addConfirm").addEventListener("click", () => {
+    const title = $("addTitle").value.trim();
+    if (!title) {
+      toast("Le titre est obligatoire.");
+      return;
+    }
+    const total = parseInt($("addTotal").value, 10);
+    addSeries({
+      title,
+      author: $("addAuthor").value.trim(),
+      publisher: $("addPublisher").value.trim(),
+      total: Number.isFinite(total) && total > 0 ? total : null
+    });
+    closeModal();
+    libraryChanged();
+    toast(`"${title}" ajoute.`);
+  });
+}
+$("addBtn").addEventListener("click", openAdd);
+$("emptyAddBtn").addEventListener("click", openAdd);
+onLibraryChanged(renderLibrary);
+renderLibrary();
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+}</script>
   <style rel="stylesheet" crossorigin>:root {
   --paper: #16150F;
+  --card: #211F17;
   --ink: #EDEAE0;
+  --dim: #A6A290;
+  --border: #3A382C;
+  --accent: #E0A93B;
+  --accent-ink: #16150F;
+  --owned: #6FAE6B;
+  --gap: #D98A4A;
+  --radius: 14px;
 }
 
 * { box-sizing: border-box; }
@@ -63,9 +381,16 @@ body {
 }
 
 .wrap {
-  max-width: 720px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 1rem;
+}
+
+.mast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0 1.25rem;
 }
 
 .mast h1 {
@@ -74,7 +399,7 @@ body {
 
 .kicker {
   opacity: 0.7;
-  margin: 0.25rem 0 1rem;
+  margin: 0.25rem 0 0;
 }
 
 .toolbar input {
@@ -84,20 +409,114 @@ body {
   border: 1px solid #444;
   background: transparent;
   color: inherit;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn.danger { background: #A6432F; color: #fff; }
+
+.empty { text-align: center; padding: 48px 16px; color: var(--dim); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+.cover {
+  aspect-ratio: 2/3;
+  background: #2C2A1F;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cover-fallback { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+.card-body { padding: 10px 12px; }
+.card-title { font-weight: 600; font-size: 0.95rem; line-height: 1.25; }
+.card-meta { font-size: 0.8rem; color: var(--dim); margin-top: 4px; display: flex; gap: 6px; align-items: center; }
+
+.badge { border-radius: 999px; padding: 2px 8px; font-size: 0.72rem; font-weight: 600; }
+.badge.complete { background: #24361F; color: var(--owned); }
+.badge.gap { background: #3A2917; color: var(--gap); }
+
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,.55);
+  display: flex; align-items: flex-end; justify-content: center; z-index: 50;
+}
+.modal {
+  background: var(--card); width: 100%; max-width: 520px; max-height: 88vh; overflow-y: auto;
+  border-radius: 20px 20px 0 0; padding: 20px; position: relative;
+}
+.modal .close { position: absolute; top: 10px; right: 14px; font-size: 1.6rem; background: none; border: none; cursor: pointer; color: var(--dim); }
+.sheet-meta { display: flex; gap: 10px; color: var(--dim); font-size: 0.85rem; margin-bottom: 12px; }
+
+.field { display: block; font-size: 0.85rem; color: var(--dim); margin: 12px 0; }
+.field input, .field textarea {
+  display: block; width: 100%; margin-top: 4px; padding: 10px; border-radius: 10px;
+  border: 1px solid var(--border); font-size: 1rem; font-family: inherit;
+  background: var(--paper); color: var(--ink);
+}
+
+.range-add { display: flex; gap: 8px; align-items: center; margin: 12px 0; }
+.range-add input { width: 70px; padding: 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--paper); color: var(--ink); }
+
+.tome-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 8px; margin: 14px 0; }
+.tome {
+  aspect-ratio: 1; border-radius: 10px; border: 1px solid var(--border); background: var(--paper);
+  color: var(--ink); font-weight: 600; cursor: pointer; font-size: 0.95rem; min-height: 44px;
+}
+.tome.owned { background: var(--owned); color: #16150F; border-color: var(--owned); }
+
+.sheet-actions { margin-top: 16px; display: flex; justify-content: flex-end; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+  background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 0.9rem;
+  z-index: 100;
 }</style>
 </head>
 <body>
 <div class="wrap">
   <header class="mast">
-    <h1>BDkids</h1>
-    <p class="kicker">Bibliothèque BD — tomes possédés</p>
-  </header>
-  <section id="viewLibrary">
-    <div class="toolbar">
-      <input type="search" id="q" placeholder="Série, auteur…" aria-label="Chercher">
+    <div>
+      <h1>BDkids</h1>
+      <p class="kicker">Bibliothèque BD — tomes possédés</p>
     </div>
-    <div id="results"></div>
-  </section>
+    <button class="btn primary" id="addBtn">+ Série</button>
+  </header>
+
+  <div id="emptyState" class="empty" style="display:none">
+    <p>Aucune série pour l'instant.</p>
+    <button class="btn primary" id="emptyAddBtn">Ajouter la première série</button>
+  </div>
+
+  <div class="grid" id="libraryGrid"></div>
 </div>
+
+<div id="modalHost"></div>
+
 </body>
 </html>

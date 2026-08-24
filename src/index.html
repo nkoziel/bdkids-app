@@ -15,16 +15,23 @@
 <body>
 <div class="wrap">
   <header class="mast">
-    <h1>BDkids</h1>
-    <p class="kicker">Bibliothèque BD — tomes possédés</p>
-  </header>
-  <section id="viewLibrary">
-    <div class="toolbar">
-      <input type="search" id="q" placeholder="Série, auteur…" aria-label="Chercher">
+    <div>
+      <h1>BDkids</h1>
+      <p class="kicker">Bibliothèque BD — tomes possédés</p>
     </div>
-    <div id="results"></div>
-  </section>
+    <button class="btn primary" id="addBtn">+ Série</button>
+  </header>
+
+  <div id="emptyState" class="empty" style="display:none">
+    <p>Aucune série pour l'instant.</p>
+    <button class="btn primary" id="emptyAddBtn">Ajouter la première série</button>
+  </div>
+
+  <div class="grid" id="libraryGrid"></div>
 </div>
+
+<div id="modalHost"></div>
+
 <script type="module" src="./main.js"></script>
 </body>
 </html>

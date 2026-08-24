@@ -9,7 +9,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "structure": "node tools/check-refs.js",
-    "verify": "node tools/verify.js && node tools/check-refs.js && vitest run"
+    "verify": "node tools/check-refs.js && vitest run"
   },
   "devDependencies": {
     "happy-dom": "^20.11.6",

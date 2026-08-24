@@ -7,7 +7,9 @@ Pas de manga, pas de suivi de lecture : juste possédé / non possédé, par tom
 
 ## Statut
 
-Projet en tout début de mise en place. Voir `CLAUDE.md` pour l'état d'avancement et les
+Le suivi manuel fonctionne de bout en bout : ajout d'une série, tomes possédés cochables
+(grille tactile ou ajout d'une plage), badge des tomes manquants/trous. Aucune source de
+métadonnées BD n'est encore branchée. Voir `CLAUDE.md` pour l'état d'avancement et les
 décisions d'architecture.
 
 ## Développement
