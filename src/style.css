@@ -213,14 +213,29 @@ h1, h2 { font-family: 'Baloo 2', 'Nunito', sans-serif; }
 .range-add input { width: 70px; padding: 10px; border-radius: 12px; border: 2px solid var(--border); background: var(--paper-a); color: var(--ink); font-weight: 700; }
 .range-add input:focus { outline: none; border-color: var(--blue); }
 
-.tome-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(46px, 1fr)); gap: 8px; margin: 14px 0; }
+.tome-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)); gap: 10px; margin: 14px 0; }
 .tome {
-  aspect-ratio: 1; border-radius: 12px; border: 2px solid var(--border); background: var(--paper-a);
+  aspect-ratio: 2/3; border-radius: 10px; border: 2px solid var(--border); background: var(--paper-a);
+  background-size: cover; background-position: center;
   color: var(--ink); font-weight: 800; cursor: pointer; font-size: 0.95rem; min-height: 44px;
-  transition: transform 0.1s ease;
+  transition: transform 0.1s ease; position: relative; overflow: hidden;
 }
-.tome:hover { transform: scale(1.08); }
-.tome.owned { background: var(--owned); color: #fff; border-color: var(--owned); }
+.tome:hover { transform: scale(1.06); }
+.tome.owned { background-color: var(--owned); color: #fff; border-color: var(--owned); }
+
+/* Tomes with a real cover: small number badge in the corner instead of a big centered digit,
+   dimmed when not owned so the grid reads at a glance like the numeric-only fallback does. */
+.tome.has-cover .tome-num {
+  position: absolute; left: 4px; bottom: 4px;
+  background: rgba(55, 43, 74, 0.78); color: #fff; border-radius: 999px;
+  padding: 1px 7px; font-size: 0.7rem; font-weight: 800;
+}
+.tome.has-cover:not(.owned) { filter: grayscale(0.9) brightness(0.72); }
+.tome.has-cover.owned::before {
+  content: "✓"; position: absolute; top: 4px; right: 4px; width: 20px; height: 20px;
+  border-radius: 50%; background: var(--owned); color: #fff; font-weight: 800; font-size: 0.75rem;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px #fff;
+}
 
 .sheet-actions { margin-top: 18px; display: flex; justify-content: flex-end; }
 

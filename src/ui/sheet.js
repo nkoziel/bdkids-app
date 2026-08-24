@@ -26,11 +26,12 @@ function render(id){
   const owned = new Set(parseTomes(s.owned));
   const size = gridSize(s.total, owned.size ? Math.max(...owned) : 0);
 
-  const tomeTitle = n => s.tomes && s.tomes.find(t => t.num === n)?.title;
+  const tomeOf = n => s.tomes && s.tomes.find(t => t.num === n);
   const cells = Array.from({ length: size }, (_, i) => i + 1).map(n => {
-    const label = tomeTitle(n);
-    const aria = `Tome ${n}${label ? ` — ${label}` : ""}`;
-    return `<button class="tome ${owned.has(n) ? "owned" : ""}" data-n="${n}" aria-label="${esc(aria)}" ${label ? `title="${esc(label)}"` : ""}>${n}</button>`;
+    const t = tomeOf(n);
+    const aria = `Tome ${n}${t?.title ? ` — ${t.title}` : ""}`;
+    const bg = t?.cover ? ` style="background-image:url('${esc(t.cover)}')"` : "";
+    return `<button class="tome ${owned.has(n) ? "owned" : ""} ${t?.cover ? "has-cover" : ""}" data-n="${n}" aria-label="${esc(aria)}" ${t?.title ? `title="${esc(t.title)}"` : ""}${bg}><span class="tome-num">${n}</span></button>`;
   }).join("");
 
   host.innerHTML = `

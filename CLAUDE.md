@@ -53,6 +53,14 @@ that modal's entry rather than stacking a second one.
 
 ## Status — 2026-08-24
 
+**Tome grid shows real covers, not just numbers.** `catalog.json` already carried a `cover` per
+tome (BDovore returns one per album); `sheet.js`'s tome-grid cells now use it as a background
+image with a small corner number badge, dimmed (grayscale) when not owned and a green check
+badge when owned — the numeric-only button is still the fallback for manually-added series with
+no `tomes` data. Verified live for Ariol and Brume: covers loaded, owned state clearly readable
+at a glance. Catalog also grew to 84 series (`Anatole Latuile`, 19 tomes, clean single BDovore
+match).
+
 **Two bugs fixed, both reported after the redesign below**: adding a series already in the
 library created a duplicate card instead of opening the existing one (`core/state.js` gained
 `findExistingSeries()`, matched by `catalogId` when the add came from the catalog, else by an

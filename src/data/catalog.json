@@ -17567,5 +17567,168 @@
         "cover": "https://www.bdovore.com/images/couv/CV-295893-312379.jpg"
       }
     ]
+  },
+  {
+    "id": "bdovore:16684",
+    "name": "Anatole Latuile",
+    "genre": "Humour",
+    "total": 19,
+    "ongoing": true,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-147226-153359.jpg",
+    "tomes": [
+      {
+        "num": 1,
+        "title": "C'est parti",
+        "isbn": "9782747023450",
+        "publishedAt": "2007-06-01",
+        "publisher": "Bayard Presse",
+        "cover": "https://www.bdovore.com/images/couv/CV-147226-153359.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Oohiohioo!",
+        "isbn": "9782747026192",
+        "publishedAt": "2008-05-00",
+        "publisher": "Bayard Presse",
+        "cover": "https://www.bdovore.com/images/couv/CV-147227-153360.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Personne en vue !",
+        "isbn": "9782747029049",
+        "publishedAt": "2009-09-03",
+        "publisher": "Bayard Presse",
+        "cover": "https://www.bdovore.com/images/couv/CV-073146-073973.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Record battu !",
+        "isbn": "9782747030670",
+        "publishedAt": "2010-09-16",
+        "publisher": "Bayard Presse",
+        "cover": "https://www.bdovore.com/images/couv/CV-088087-090510.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Ultra top secret!",
+        "isbn": "9782747039048",
+        "publishedAt": "2011-10-01",
+        "publisher": "Bayard Presse",
+        "cover": "https://www.bdovore.com/images/couv/CV-147228-153361.jpg"
+      },
+      {
+        "num": 6,
+        "title": "Pas de panique !",
+        "isbn": "9782747044639",
+        "publishedAt": "2013-01-30",
+        "publisher": "Bayard Presse",
+        "cover": "https://www.bdovore.com/images/couv/CV-151431-157759.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Ça va dégominer !",
+        "isbn": "9782747049634",
+        "publishedAt": "2014-01-29",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-175628-183905.jpg"
+      },
+      {
+        "num": 8,
+        "title": "Le roi du chahut",
+        "isbn": "9782747055543",
+        "publishedAt": "2015-02-03",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-201672-212619.jpg"
+      },
+      {
+        "num": 9,
+        "title": "Ça déménage !",
+        "isbn": "9782747059244",
+        "publishedAt": "2016-02-03",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-221992-234544.jpg"
+      },
+      {
+        "num": 10,
+        "title": "Sauve qui peut",
+        "isbn": "9782747072366",
+        "publishedAt": "2017-02-01",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-260802-275920.jpg"
+      },
+      {
+        "num": 11,
+        "title": "Trop la classe !",
+        "isbn": "9782747085953",
+        "publishedAt": "2018-02-07",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-294541-310983.jpg"
+      },
+      {
+        "num": 12,
+        "title": "La vengeance des gnomes",
+        "isbn": "9791036303371",
+        "publishedAt": "2019-01-09",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-294539-310981.jpg"
+      },
+      {
+        "num": 13,
+        "title": "Et qu'ca saute !",
+        "isbn": "9791036314896",
+        "publishedAt": "2020-01-22",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-328576-346058.jpg"
+      },
+      {
+        "num": 14,
+        "title": "Supergéant !",
+        "isbn": "9791036325373",
+        "publishedAt": "2021-01-13",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-344419-362858.jpg"
+      },
+      {
+        "num": 15,
+        "title": "Décollage immédiat !",
+        "isbn": "9791036333118",
+        "publishedAt": "2022-01-05",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-354642-373796.jpg"
+      },
+      {
+        "num": 16,
+        "title": "Des bêtes et des bétises",
+        "isbn": null,
+        "publishedAt": "2023-01-11",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-362281-382201.jpg"
+      },
+      {
+        "num": 17,
+        "title": "Encore des exploits !",
+        "isbn": "9791036362361",
+        "publishedAt": "2024-01-03",
+        "publisher": "Bayard Presse",
+        "cover": "https://www.bdovore.com/images/couv/CV-372601-393130.jpg"
+      },
+      {
+        "num": 18,
+        "title": "Un Max de surprises !",
+        "isbn": "9791036372254",
+        "publishedAt": "2025-01-08",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-384853-405978.jpg"
+      },
+      {
+        "num": 19,
+        "title": "Tous aux abris !",
+        "isbn": "9791036390074",
+        "publishedAt": "2026-01-07",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-399714-421532.jpg"
+      }
+    ]
   }
 ]
