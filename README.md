@@ -5,12 +5,15 @@ série, avant d'acheter un nouveau tome en librairie.
 
 Pas de manga, pas de suivi de lecture : juste possédé / non possédé, par tome.
 
+**En ligne : https://nkoziel.github.io/bdkids-app/**
+
 ## Statut
 
-Le suivi manuel fonctionne de bout en bout : ajout d'une série, tomes possédés cochables
-(grille tactile ou ajout d'une plage), badge des tomes manquants/trous. Aucune source de
-métadonnées BD n'est encore branchée. Voir `CLAUDE.md` pour l'état d'avancement et les
-décisions d'architecture.
+Recherche d'une série dans un catalogue local (~70 séries BD jeunesse franco-belges, données
+BDovore), ajout en un clic avec couverture et liste des tomes, ou saisie manuelle pour une série
+absente du catalogue. Tomes possédés cochables (grille tactile ou ajout d'une plage), badge des
+tomes manquants/trous. Voir `CLAUDE.md` pour l'état d'avancement et les décisions
+d'architecture.
 
 ## Développement
 
