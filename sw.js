@@ -3,7 +3,7 @@
 /* IMPORTANT — bump VERSION on EVERY release.
    Without it, browsers that already installed the app never receive fixes:
    the SW only reinstalls when its own bytes change. Same lesson as rayon-app REVIEW.md §1.3. */
-const VERSION = "2026-08-24.1";
+const VERSION = "2026-08-24.2";
 
 const CACHE   = `bdkids-shell-${VERSION}`;  // purged on every version bump
 const RUNTIME = "bdkids-runtime";           // cover images, kept across versions
@@ -59,9 +59,8 @@ self.addEventListener("fetch", e => {
     return;
   }
 
-  // Cover images from the metadata source: cache first, refreshed in the background.
-  // TODO: fill in the metadata source hostname(s) once BD-Metadata-Sources.md is settled.
-  if (/__METADATA_SOURCE_HOSTNAME__/.test(url.hostname)) {
+  // Cover images hotlinked from BDovore: cache first, refreshed in the background.
+  if (/bdovore\.com$/.test(url.hostname)) {
     e.respondWith(
       caches.match(req).then(hit => {
         const net = fetch(req).then(res => {

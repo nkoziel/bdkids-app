@@ -23,8 +23,8 @@ changes).
 | Path | What it is |
 |---|---|
 | `src/core/` | `dom`, `store`, `state`, `tomes` — no UI, no app flow |
-| `src/data/` | fetching and deriving from the chosen metadata source(s) (not yet populated — see below) |
-| `src/ui/` | `library` (grid), `sheet` (series detail + tome grid), `add` (new series), `refresh` (cycle-breaker) |
+| `src/data/` | `catalog.json` (static, baked BDovore data) + `catalog.js` (search/lookup) |
+| `src/ui/` | `library` (grid), `sheet` (series detail + tome grid), `add` (catalog search + manual fallback), `refresh` (cycle-breaker) |
 | `src/main.js` | wiring and boot only |
 | `src/style.css`, `src/index.html` | CSS and the page shell |
 | `index.html` (root) | generated single file, committed, served by Pages |
@@ -46,28 +46,44 @@ importing whatever owns rendering. Same pattern as rayon-app's own `ui/refresh.j
 
 ## Status — 2026-08-24
 
-**Core library flow works end to end**, verified live in a browser: add a series manually,
-tick tomes owned via a tap grid or an "add range" gesture (own 1 to N in one action),
-missing/gap badge on the library grid, per-series notes. 45 tests on `core/tomes.js` (ported
-from rayon-app's `core/volumes.js` / Phase 3b) pass; `npm run build` produces a working
-single-file bundle; `git init` + first commit done.
+**Core library flow works end to end**, verified live in a browser: search the local catalog
+when adding a series (autocomplete pre-fills title/cover/total/tome list from BDovore data),
+manual entry still available for anything not in the catalog, tick tomes owned via a tap grid
+or an "add range" gesture, missing/gap badge on the library grid, per-series notes. 45 tests on
+`core/tomes.js` (ported from rayon-app's `core/volumes.js` / Phase 3b) pass; `npm run build`
+produces a working single-file bundle (~40 KB); `git init` + commits done, **not pushed to
+GitHub yet**.
 
-**No metadata source is wired in yet.** `src/data/` does not exist. The vault reference note
-`BD-Metadata-Sources.md` (in `G:\Mon Drive\NKO\Projects\bdkids-app\`) tracks the research on
-which API(s) to use for series and tome listings — read it before adding `src/data/`.
+`sw.js` still has a `__METADATA_SOURCE_HOSTNAME__` placeholder — harmless leftover now that
+BDovore is fetched at dev time rather than at runtime (see below), can be deleted. Icons
+referenced by `manifest.webmanifest`/`sw.js` still don't exist.
 
-Consequence: `sw.js` has a `__METADATA_SOURCE_HOSTNAME__` placeholder to fill in once that
-decision lands, and the icons referenced by `manifest.webmanifest`/`sw.js` don't exist yet.
+## Metadata: baked at dev time, not fetched live
 
-`core/store.js` already exposes an IndexedDB metadata cache (`kvGet`/`kvSet`), unused for now,
-so wiring in a real source later is a data-layer-only change.
+BDovore's unofficial JSON API is the source (see `BD-Metadata-Sources.md` in the vault for the
+full research). It has **no CORS header**, so it can't be called from the browser — but since
+only a handful of series are tracked, there's no need to: `tools/fetch-bdovore.js` runs in
+Node (no CORS restriction there) and writes `src/data/catalog.json`, committed to the repo.
+`src/data/catalog.js` exposes `searchCatalog(term)` / `catalogTomes(id)` over that static file.
+**Zero runtime network calls to BDovore** — only cover images are hotlinked
+(`bdovore.com/images/couv/...`), which needs no CORS for a plain `<img>`.
+
+To add a series or refresh tome counts: edit `tools/series.json`, run
+`npm run fetch:bdovore`, commit the updated `catalog.json`. `id_serie` in `series.json`
+disambiguates when a title search matches multiple BDovore series (common — e.g. "Ariol" has
+two editions, "Tom-Tom et Nana" collides with unrelated "Nana" manga entries).
+
+**Data-quality note**: BDovore's raw `Album` listing includes hors-série/coffret entries with
+`NUM_TOME=0` mixed in with the real numbered tomes. `catalogTomes()` filters `num > 0`, which
+matched each series' own tome count exactly on all six checked — but re-verify if a series
+looks off after adding it.
 
 ## Data model
 
 One entry per series, no chapter axis at all:
 
 ```
-{ id, title, author, publisher, total, owned, cover, notes, updatedAt }
+{ id, title, author, publisher, total, owned, cover, notes, updatedAt, catalogId, tomes }
 ```
 
 `owned` is a **range string** (`"1-7,9,12-14"`), ported verbatim from rayon-app's
@@ -76,11 +92,16 @@ bookshop" — literally this app's entire premise) into `core/tomes.js`. Compact
 diff-friendly, survives a JSON export unchanged, human-readable. `total` is `null` until
 known — **never guessed**.
 
-## Architecture decisions carried over from rayon-app (unless the metadata research says otherwise)
+`catalogId` and `tomes` (`[{num, title, isbn, publishedAt, cover}]`) are set when a series was
+added from the local catalog; both are `null`/absent for a manually-added series. `sheet.js`
+uses `tomes` to label each grid cell with its title (hover `title` + `aria-label`, so the
+number stays the accessible name — don't drop the `aria-label` in favor of bare `title`, a
+screen reader would announce the book title instead of "Tome N").
 
-- No account, no backend — everything in the browser. **At risk**: if the chosen metadata
-  source has no CORS support for browser fetch, this may force a tiny serverless proxy —
-  check `BD-Metadata-Sources.md` before assuming this holds.
+## Architecture decisions carried over from rayon-app
+
+- No account, no backend — everything in the browser, **confirmed workable**: the CORS gap on
+  BDovore is worked around at dev time (see above), not with a runtime proxy.
 - Single self-contained `index.html` built via `vite-plugin-singlefile`.
 - No framework, no TypeScript, no backend for now.
 - Public GitHub repo + GitHub Pages continuous deploy — **not created yet**, ask before
