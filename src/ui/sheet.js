@@ -38,7 +38,7 @@ function render(id){
         <div class="range-add">
           <input type="number" min="1" id="rangeFrom" placeholder="de" />
           <input type="number" min="1" id="rangeTo" placeholder="a" />
-          <button id="rangeAddBtn">Ajouter la plage</button>
+          <button class="btn" id="rangeAddBtn">Ajouter la plage</button>
         </div>
         <div class="tome-grid">${cells}</div>
         <label class="field">
@@ -46,7 +46,7 @@ function render(id){
           <textarea id="notesInput" rows="2">${esc(s.notes || "")}</textarea>
         </label>
         <div class="sheet-actions">
-          <button class="danger" id="removeBtn">Supprimer la serie</button>
+          <button class="btn danger" id="removeBtn">Supprimer la serie</button>
         </div>
       </div>
     </div>`;

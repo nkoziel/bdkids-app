@@ -7,8 +7,8 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#D9D7CA",
-  "theme_color": "#16150F",
+  "background_color": "#FFF6E0",
+  "theme_color": "#FF6B9D",
   "lang": "fr",
   "categories": ["books", "kids", "lifestyle"],
   "icons": [

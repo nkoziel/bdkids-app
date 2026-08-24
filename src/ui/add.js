@@ -34,7 +34,7 @@ export function openAdd(){
             <input type="number" min="0" id="addTotal" placeholder="?" />
           </label>
           <div class="sheet-actions">
-            <button id="addConfirm">Ajouter</button>
+            <button class="btn primary" id="addConfirm">Ajouter</button>
           </div>
         </details>
       </div>

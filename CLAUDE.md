@@ -46,6 +46,23 @@ importing whatever owns rendering. Same pattern as rayon-app's own `ui/refresh.j
 
 ## Status — 2026-08-24
 
+**UI restyled for a kid audience**: `src/style.css` moved from rayon-app's dark charcoal theme to
+a bright light theme (cream/sky gradient background, rainbow-accented cards cycling through 7
+colors via `nth-child`, Baloo 2 for headings, Nunito for body, pill-shaped "pop" buttons with an
+offset shadow). `manifest.webmanifest` and the `theme-color` meta updated to match. Buttons in
+`sheet.js`/`add.js` that were missing the `.btn` class (`removeBtn`, `rangeAddBtn`, `addConfirm`)
+now have it, for consistent styling.
+
+**Catalog expanded from 70 to 83 series** (`tools/series.json` + regenerated
+`src/data/catalog.json`): added series similar in spirit to the original 6 (Ariol, Tom-Tom et
+Nana, Bergères guerrières, Brume, Elfie, Les Légendaires) — school/family humor (Le Petit Nicolas,
+Pico Bogue, Quatre sœurs, Les Vermeilles) and heroic-fantasy/magic adventure with young heroines
+(Sorceline, Hilda, Mélusine, Les Chevaliers d'Émeraude, Amulet, Bone, La Balade de Yaya, Le
+Château des étoiles, Les Dragouilles). Deliberately skipped Wakfu/Dofus — BDovore tags both
+`genre=Mangas`, against this project's no-manga rule. `npm run fetch:bdovore` output was
+spot-checked against BDovore's raw search results for near-misses (e.g. "Amulette" auto-matched
+a wrong 2-tome series; the real one is titled "Amulet" in French too, `id_serie=16258`).
+
 **Core library flow works end to end**, verified live in a browser: search the local catalog
 when adding a series (autocomplete pre-fills title/cover/total/tome list from BDovore data),
 manual entry still available for anything not in the catalog, tick tomes owned via a tap grid
