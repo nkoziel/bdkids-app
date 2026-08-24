@@ -464,7 +464,20 @@ $("emptyAddBtn").addEventListener("click", openAdd);
 onLibraryChanged(renderLibrary);
 renderLibrary();
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" }).then((reg) => {
+      reg.addEventListener("updatefound", () => {
+        const sw = reg.installing;
+        if (!sw) return;
+        sw.addEventListener("statechange", () => {
+          if (sw.state === "installed" && navigator.serviceWorker.controller) {
+            toast("Nouvelle version disponible — recharge la page.");
+          }
+        });
+      });
+    }).catch(() => {
+    });
+  });
 }</script>
   <style rel="stylesheet" crossorigin>@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap');
 

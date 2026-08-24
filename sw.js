@@ -3,7 +3,7 @@
 /* IMPORTANT — bump VERSION on EVERY release.
    Without it, browsers that already installed the app never receive fixes:
    the SW only reinstalls when its own bytes change. Same lesson as rayon-app REVIEW.md §1.3. */
-const VERSION = "2026-08-24.2";
+const VERSION = "2026-08-24.3";
 
 const CACHE   = `bdkids-shell-${VERSION}`;  // purged on every version bump
 const RUNTIME = "bdkids-runtime";           // cover images, kept across versions
