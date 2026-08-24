@@ -9,7 +9,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "structure": "node tools/check-refs.js",
-    "verify": "node tools/check-refs.js && vitest run"
+    "verify": "node tools/check-refs.js && vitest run",
+    "fetch:bdovore": "node tools/fetch-bdovore.js"
   },
   "devDependencies": {
     "happy-dom": "^20.11.6",
