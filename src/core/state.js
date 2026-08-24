@@ -42,3 +42,21 @@ export function removeSeries(id){
 }
 
 export const allSeries = () => Object.values(LIB).sort((a, b) => a.title.localeCompare(b.title, "fr"));
+
+/* Title normalisation for duplicate detection only — never a storage key. Accent-insensitive,
+   punctuation-insensitive, so "Ariol (2e série)" and "ariol 2e serie" match. */
+const normTitle = s => (s || "").toLowerCase().normalize("NFD")
+  .replace(/[̀-ͯ]/g, "")
+  .replace(/[^\p{L}\p{N}]/gu, "");
+
+/* Is this series already in the library? Catalog adds are matched by catalogId (exact, stable
+   across a title rename in the source data); manual adds only ever have a title to go on. */
+export function findExistingSeries({ catalogId, title }){
+  const entries = Object.values(LIB);
+  if (catalogId) {
+    const hit = entries.find(s => s.catalogId === catalogId);
+    if (hit) return hit;
+  }
+  const t = normTitle(title);
+  return entries.find(s => normTitle(s.title) === t) || null;
+}

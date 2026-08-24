@@ -116,6 +116,16 @@ function removeSeries(id) {
   saveLib();
 }
 const allSeries = () => Object.values(LIB).sort((a, b) => a.title.localeCompare(b.title, "fr"));
+const normTitle = (s) => (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^\p{L}\p{N}]/gu, "");
+function findExistingSeries({ catalogId, title }) {
+  const entries = Object.values(LIB);
+  if (catalogId) {
+    const hit = entries.find((s) => s.catalogId === catalogId);
+    if (hit) return hit;
+  }
+  const t = normTitle(title);
+  return entries.find((s) => normTitle(s.title) === t) || null;
+}
 function parseTomes(str) {
   if (!str || typeof str !== "string") return [];
   const out = /* @__PURE__ */ new Set();
@@ -197,10 +207,40 @@ function onLibraryChanged(fn) {
 function libraryChanged() {
   if (cb) cb();
 }
+const stack = [];
+let wired = false;
+function wire() {
+  if (wired) return;
+  wired = true;
+  window.addEventListener("popstate", () => {
+    const teardown = stack.pop();
+    if (teardown) teardown();
+  });
+}
+function openLayer(teardown) {
+  wire();
+  stack.push(teardown);
+  history.pushState({ bdkidsLayer: stack.length }, "");
+}
+function replaceLayer(teardown) {
+  if (!stack.length) return openLayer(teardown);
+  stack[stack.length - 1] = teardown;
+}
+function closeLayer() {
+  if (!stack.length) return false;
+  history.back();
+  return true;
+}
+const layerOpen = () => stack.length > 0;
+function closeSheet() {
+  if (!closeLayer()) closeModal();
+}
 function openSheet(id) {
   const s = LIB[id];
   if (!s) return;
   render(id);
+  if (layerOpen()) replaceLayer(closeModal);
+  else openLayer(closeModal);
 }
 function render(id) {
   const s = LIB[id];
@@ -244,9 +284,9 @@ function render(id) {
         </div>
       </div>
     </div>`;
-  host.querySelector(".close").addEventListener("click", closeModal);
+  host.querySelector(".close").addEventListener("click", closeSheet);
   host.querySelector(".modal-backdrop").addEventListener("click", (e) => {
-    if (e.target.classList.contains("modal-backdrop")) closeModal();
+    if (e.target.classList.contains("modal-backdrop")) closeSheet();
   });
   host.querySelectorAll(".tome").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -278,7 +318,7 @@ function render(id) {
   $("removeBtn").addEventListener("click", () => {
     if (!confirm(`Supprimer "${s.title}" de la bibliotheque ?`)) return;
     removeSeries(id);
-    closeModal();
+    closeSheet();
     libraryChanged();
   });
 }
@@ -357,11 +397,20 @@ function openAdd() {
         </details>
       </div>
     </div>`;
-  host.querySelector(".close").addEventListener("click", closeModal);
+  const dismiss = () => {
+    if (!closeLayer()) closeModal();
+  };
+  host.querySelector(".close").addEventListener("click", dismiss);
   host.querySelector(".modal-backdrop").addEventListener("click", (e) => {
-    if (e.target.classList.contains("modal-backdrop")) closeModal();
+    if (e.target.classList.contains("modal-backdrop")) dismiss();
   });
   const confirmAdd = (payload) => {
+    const existing = findExistingSeries(payload);
+    if (existing) {
+      toast(`"${existing.title}" est deja dans ta bibliotheque.`);
+      openSheet(existing.id);
+      return;
+    }
     addSeries(payload);
     closeModal();
     libraryChanged();
@@ -408,6 +457,7 @@ function openAdd() {
       total: Number.isFinite(total) && total > 0 ? total : null
     });
   });
+  openLayer(closeModal);
 }
 $("addBtn").addEventListener("click", openAdd);
 $("emptyAddBtn").addEventListener("click", openAdd);

@@ -24,7 +24,7 @@ changes).
 |---|---|
 | `src/core/` | `dom`, `store`, `state`, `tomes` — no UI, no app flow |
 | `src/data/` | `catalog.json` (static, baked BDovore data) + `catalog.js` (search/lookup) |
-| `src/ui/` | `library` (grid), `sheet` (series detail + tome grid), `add` (catalog search + manual fallback), `refresh` (cycle-breaker) |
+| `src/ui/` | `library` (grid), `sheet` (series detail + tome grid), `add` (catalog search + manual fallback), `refresh` (cycle-breaker), `layers` (Android back closes an overlay, not the app) |
 | `src/main.js` | wiring and boot only |
 | `src/style.css`, `src/index.html` | CSS and the page shell |
 | `index.html` (root) | generated single file, committed, served by Pages |
@@ -44,7 +44,25 @@ catches these; it caught exactly this one when the modules first landed). `main.
 `onLibraryChanged(renderLibrary)` once; `sheet.js`/`add.js` call `libraryChanged()` without
 importing whatever owns rendering. Same pattern as rayon-app's own `ui/refresh.js`.
 
+`ui/layers.js` (ported from rayon-app's own `ui/layers.js`) makes the Android back gesture close
+the open sheet/modal instead of exiting the installed app: every overlay pushes one history
+entry via `openLayer(teardown)` when it opens, and `popstate` (back, or `closeLayer()` from a
+control inside the app) pops it and runs the teardown. `openSheet()` opened from inside the
+add-series modal (duplicate found — see below) calls `replaceLayer` instead, so it takes over
+that modal's entry rather than stacking a second one.
+
 ## Status — 2026-08-24
+
+**Two bugs fixed, both reported after the redesign below**: adding a series already in the
+library created a duplicate card instead of opening the existing one (`core/state.js` gained
+`findExistingSeries()`, matched by `catalogId` when the add came from the catalog, else by an
+accent/punctuation-insensitive title match; `add.js`'s `confirmAdd` now opens the existing
+sheet with a toast instead of calling `addSeries`); and the Android back gesture closed the
+whole installed app instead of just the open sheet/modal, because nothing pushed a history
+entry — fixed by porting `ui/layers.js` from rayon-app (see below). Both verified live in a
+browser: searched an already-added series from the catalog, got the existing sheet and a toast
+instead of a 4th duplicate card; browser back closed the sheet and landed back on the library
+grid rather than leaving the page.
 
 **UI restyled for a kid audience**: `src/style.css` moved from rayon-app's dark charcoal theme to
 a bright light theme (cream/sky gradient background, rainbow-accented cards cycling through 7

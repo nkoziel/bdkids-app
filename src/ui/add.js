@@ -1,7 +1,9 @@
 import { $, esc, closeModal, toast } from '../core/dom.js';
-import { addSeries } from '../core/state.js';
+import { addSeries, findExistingSeries } from '../core/state.js';
 import { searchCatalog, catalogTomes } from '../data/catalog.js';
 import { libraryChanged } from './refresh.js';
+import { openSheet } from './sheet.js';
+import { openLayer, closeLayer } from './layers.js';
 
 export function openAdd(){
   const host = $("modalHost");
@@ -40,10 +42,17 @@ export function openAdd(){
       </div>
     </div>`;
 
-  host.querySelector(".close").addEventListener("click", closeModal);
-  host.querySelector(".modal-backdrop").addEventListener("click", e => { if (e.target.classList.contains("modal-backdrop")) closeModal(); });
+  const dismiss = () => { if (!closeLayer()) closeModal(); };
+  host.querySelector(".close").addEventListener("click", dismiss);
+  host.querySelector(".modal-backdrop").addEventListener("click", e => { if (e.target.classList.contains("modal-backdrop")) dismiss(); });
 
   const confirmAdd = (payload) => {
+    const existing = findExistingSeries(payload);
+    if (existing) {
+      toast(`"${existing.title}" est deja dans ta bibliotheque.`);
+      openSheet(existing.id);
+      return;
+    }
     addSeries(payload);
     closeModal();
     libraryChanged();
@@ -90,4 +99,8 @@ export function openAdd(){
       total: Number.isFinite(total) && total > 0 ? total : null,
     });
   });
+
+  /* Last, so a throw while rendering/wiring above cannot leave a history entry with nothing
+     behind it to pop — see layers.js. */
+  openLayer(closeModal);
 }

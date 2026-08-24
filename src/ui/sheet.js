@@ -2,11 +2,22 @@ import { $, esc, closeModal, toast } from '../core/dom.js';
 import { LIB, updateSeries, removeSeries } from '../core/state.js';
 import { toggleTome, addRange, gridSize, parseTomes } from '../core/tomes.js';
 import { libraryChanged } from './refresh.js';
+import { openLayer, replaceLayer, closeLayer, layerOpen } from './layers.js';
+
+/* What every control inside the sheet calls to dismiss it. Goes back through history so the
+   entry the sheet pushed (or took over via replaceLayer) is consumed; the popstate handler in
+   layers.js runs the actual teardown (closeModal). See layers.js for why this indirection
+   matters — it's what makes the Android back gesture close the sheet instead of the app. */
+function closeSheet(){ if (!closeLayer()) closeModal(); }
 
 export function openSheet(id){
   const s = LIB[id];
   if (!s) return;
   render(id);
+  /* A sheet opened from the add-series modal (duplicate found) takes over that modal's history
+     entry rather than stacking a second one — same screen depth, back still only takes you one
+     step back. */
+  if (layerOpen()) replaceLayer(closeModal); else openLayer(closeModal);
 }
 
 function render(id){
@@ -51,8 +62,8 @@ function render(id){
       </div>
     </div>`;
 
-  host.querySelector(".close").addEventListener("click", closeModal);
-  host.querySelector(".modal-backdrop").addEventListener("click", e => { if (e.target.classList.contains("modal-backdrop")) closeModal(); });
+  host.querySelector(".close").addEventListener("click", closeSheet);
+  host.querySelector(".modal-backdrop").addEventListener("click", e => { if (e.target.classList.contains("modal-backdrop")) closeSheet(); });
 
   host.querySelectorAll(".tome").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -85,7 +96,7 @@ function render(id){
   $("removeBtn").addEventListener("click", () => {
     if (!confirm(`Supprimer "${s.title}" de la bibliotheque ?`)) return;
     removeSeries(id);
-    closeModal();
+    closeSheet();
     libraryChanged();
   });
 }
