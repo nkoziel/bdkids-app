@@ -100,9 +100,9 @@ let LIB = store.get(LIB_KEY) || {};
 function saveLib() {
   return store.set(LIB_KEY, LIB);
 }
-function addSeries({ title, author = "", publisher = "", total = null, cover = "", notes = "" }) {
+function addSeries({ title, author = "", publisher = "", total = null, cover = "", notes = "", catalogId = null, tomes = null }) {
   const id = uid();
-  LIB[id] = { id, title: title.trim(), author, publisher, total: total || null, owned: "", cover, notes, updatedAt: Date.now() };
+  LIB[id] = { id, title: title.trim(), author, publisher, total: total || null, owned: "", cover, notes, updatedAt: Date.now(), catalogId, tomes };
   saveLib();
   return LIB[id];
 }
@@ -207,9 +207,15 @@ function render(id) {
   const host = $("modalHost");
   const owned = new Set(parseTomes(s.owned));
   const size = gridSize(s.total, owned.size ? Math.max(...owned) : 0);
-  const cells = Array.from({ length: size }, (_, i) => i + 1).map((n) => `
-    <button class="tome ${owned.has(n) ? "owned" : ""}" data-n="${n}">${n}</button>
-  `).join("");
+  const tomeTitle = (n) => {
+    var _a;
+    return s.tomes && ((_a = s.tomes.find((t) => t.num === n)) == null ? void 0 : _a.title);
+  };
+  const cells = Array.from({ length: size }, (_, i) => i + 1).map((n) => {
+    const label = tomeTitle(n);
+    const aria = `Tome ${n}${label ? ` — ${label}` : ""}`;
+    return `<button class="tome ${owned.has(n) ? "owned" : ""}" data-n="${n}" aria-label="${esc(aria)}" ${label ? `title="${esc(label)}"` : ""}>${n}</button>`;
+  }).join("");
   host.innerHTML = `
     <div class="modal-backdrop">
       <div class="modal sheet">
@@ -301,6 +307,20 @@ function renderLibrary() {
     card.addEventListener("click", () => openSheet(card.dataset.id));
   });
 }
+const catalog = /* @__PURE__ */ JSON.parse(`[{"id":"bdovore:25148","name":"Ariol (2e série)","genre":"Aventure","total":21,"ongoing":true,"description":null,"cover":"https://www.bdovore.com/images/couv/CV-418471-440918.jpg","tomes":[{"num":0,"title":"Où est Pétula ?","isbn":"9782747044905","publishedAt":"2013-05-02","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-158400-165310.jpg"},{"num":0,"title":"Ramono, ton tonton fait du BIO !","isbn":"9782747032469","publishedAt":"2015-06-03","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-209660-221339.jpg"},{"num":0,"title":"Les vacances chez Papi et Mamie","isbn":"9791036397332","publishedAt":"2026-06-10","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-418471-440918.jpg"},{"num":1,"title":"Un petit âne comme vous et moi","isbn":"9782747024402","publishedAt":"2008-03-01","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-152511-158905.jpg"},{"num":2,"title":"Ariol, le chevalier cheval","isbn":"9782747024464","publishedAt":"2007-09-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-077174-078546.jpg"},{"num":3,"title":"Copain comme cochon","isbn":"9782747022415","publishedAt":"2007-03-08","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-041525-040356.jpg"},{"num":4,"title":"Une jolie vache","isbn":"9782747026215","publishedAt":"2008-10-01","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-152512-158906.jpg"},{"num":5,"title":"Bisbille fait mouche","isbn":"9782747029056","publishedAt":"2009-10-01","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-152513-158907.jpg"},{"num":6,"title":"Chat méchant","isbn":"9782747030694","publishedAt":"2011-01-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-152514-158908.jpg"},{"num":7,"title":"Le maître chien","isbn":"9782747039079","publishedAt":"2012-01-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-152515-158909.jpg"},{"num":8,"title":"Les trois baudets","isbn":"9782747044622","publishedAt":"2013-01-30","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-151432-157760.jpg"},{"num":9,"title":"Les dents du lapin","isbn":"9782747049597","publishedAt":"2014-01-03","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-173452-181618.jpg"},{"num":10,"title":"Les petits rats de l'opéra","isbn":"9782747052993","publishedAt":"2015-01-07","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-200117-210893.jpg"},{"num":11,"title":"La fête à la grenouille","isbn":"9782747059374","publishedAt":"2016-01-06","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-230817-244043.jpg"},{"num":12,"title":"Le coq sportif","isbn":"9782747072533","publishedAt":"2017-01-01","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-337021-355262.jpg"},{"num":13,"title":"Le canard calé","isbn":"9782747086011","publishedAt":"2017-11-08","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-263007-278664.jpg"},{"num":14,"title":"Ce nigaud d'agneau","isbn":"9791036303388","publishedAt":"2018-11-07","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-319676-336749.jpg"},{"num":15,"title":"Touche pas à mon veau","isbn":"9791036312748","publishedAt":"2019-11-13","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-319466-336534.jpg"},{"num":16,"title":"Naphtaline nous dit toutou","isbn":"9791036323713","publishedAt":"2020-10-14","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-342430-360816.jpg"},{"num":17,"title":"La chouette classe verte","isbn":"9791036328886","publishedAt":"2021-11-10","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-353238-372270.jpg"},{"num":18,"title":"Vieux sac à puces !","isbn":"9791036350009","publishedAt":"2022-11-02","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-360532-380195.jpg"},{"num":19,"title":"Ariol chante comme un rossignol","isbn":"9791036358883","publishedAt":"2023-11-02","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-370397-390854.jpg"},{"num":20,"title":"Le cheval à bascule","isbn":"9791036372872","publishedAt":"2024-11-06","publisher":null,"cover":"https://www.bdovore.com/images/couv/CV-384403-405476.jpg"},{"num":21,"title":"Quand j'étais petit ânon...","isbn":"9791036385100","publishedAt":"2025-11-05","publisher":"Bayard Éditions","cover":"https://www.bdovore.com/images/couv/CV-395106-416679.jpg"}]},{"id":"bdovore:6578","name":"Tom-Tom et Nana","genre":"Humour","total":34,"ongoing":true,"description":null,"cover":"https://www.bdovore.com/images/couv/CV-129624-135004.jpg","tomes":[{"num":0,"title":"Le Concert","isbn":"9782747008631","publishedAt":"2002-11-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022789-018781.jpg"},{"num":0,"title":"Tom-Tom à votre service","isbn":"9782700940008","publishedAt":"1981-01-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-129624-135004.jpg"},{"num":1,"title":"Tom-Tom et l'impossible Nana","isbn":"9782227731011","publishedAt":"1985-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022790-018782.jpg"},{"num":2,"title":"Tom-Tom et ses idées explosives","isbn":"9782227731066","publishedAt":"1985-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022791-018783.jpg"},{"num":3,"title":"Le roi de la tambouille","isbn":"9782227731042","publishedAt":"1985-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022792-018784.jpg"},{"num":4,"title":"Les cartables décollent","isbn":"9782227731073","publishedAt":"1985-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022793-018785.jpg"},{"num":5,"title":"Les vacances infernales","isbn":"9782227731080","publishedAt":"1987-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022794-018786.jpg"},{"num":6,"title":"Bande de sauvages !","isbn":"9782227731097","publishedAt":"1987-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022795-018787.jpg"},{"num":7,"title":"Drôle de cirque !","isbn":"9782227731103","publishedAt":"1987-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022796-018788.jpg"},{"num":8,"title":"Les deux terreurs","isbn":"9782227731110","publishedAt":"1988-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022797-018789.jpg"},{"num":9,"title":"Les fous du mercredi","isbn":"9782227731127","publishedAt":"1988-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022798-018790.jpg"},{"num":10,"title":"Les premiers de la casse","isbn":"9782227731134","publishedAt":"1989-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022799-018791.jpg"},{"num":11,"title":"Ici radio-casserole","isbn":"9782227731141","publishedAt":"1989-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022800-018792.jpg"},{"num":12,"title":"Et que ça saute !","isbn":"9782227731059","publishedAt":"1990-01-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022801-018793.jpg"},{"num":13,"title":"Bonjour les cadeaux !","isbn":"9782227731158","publishedAt":"1991-01-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022802-018794.jpg"},{"num":14,"title":"La tribu des affreux","isbn":"9782227731035","publishedAt":"1992-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022803-018795.jpg"},{"num":15,"title":"Ca va chauffer !","isbn":"9782227731165","publishedAt":"1992-10-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022804-018796.jpg"},{"num":16,"title":"Abracada... boum","isbn":"9782227731172","publishedAt":"1993-05-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022805-018797.jpg"},{"num":17,"title":"Allez, les monstres !","isbn":"9782227731189","publishedAt":"1994-04-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022806-018798.jpg"},{"num":18,"title":"Salut, les zinzins","isbn":"9782227731196","publishedAt":"1994-11-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022807-018799.jpg"},{"num":19,"title":"Bienvenue au club !","isbn":"9782227731028","publishedAt":"1995-11-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022228-018220.jpg"},{"num":20,"title":"Poux, papous et pas papous","isbn":"9782227731004","publishedAt":"1995-11-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022229-018221.jpg"},{"num":21,"title":"C'est magique !","isbn":"9782227731202","publishedAt":"1996-10-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022230-018222.jpg"},{"num":22,"title":"Superstars","isbn":"9782227731219","publishedAt":"1997-10-14","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-030883-027266.jpg"},{"num":23,"title":"Dégâts à gogo !","isbn":"9782227731226","publishedAt":"1998-11-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022231-018223.jpg"},{"num":24,"title":"Au zoo, les zozos !","isbn":"9782227731233","publishedAt":"1999-10-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022232-018224.jpg"},{"num":25,"title":"Les mabouls déboulent","isbn":"9782747000291","publishedAt":"2000-10-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022233-018225.jpg"},{"num":26,"title":"Tremblez, carcasses !","isbn":"9782747003933","publishedAt":"2001-10-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022234-018226.jpg"},{"num":27,"title":"Trop, c'est trop !","isbn":"9782747005852","publishedAt":"2002-03-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022235-018227.jpg"},{"num":28,"title":"A l'attaque !","isbn":"9782747006460","publishedAt":"2002-10-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022236-018228.jpg"},{"num":29,"title":"Toujours plus fort !","isbn":"9782747008891","publishedAt":"2003-03-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022237-018229.jpg"},{"num":30,"title":"La Salsa Des Saucisses","isbn":"9782747009546","publishedAt":"2003-10-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022238-018230.jpg"},{"num":31,"title":"Ca roule !","isbn":"9782747012744","publishedAt":"2004-03-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-022808-018800.jpg"},{"num":32,"title":"Subliiimes!","isbn":"9782747014946","publishedAt":"2004-10-14","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-030884-027267.jpg"},{"num":33,"title":"Ben ça, alors","isbn":"9782747017121","publishedAt":"2005-06-01","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-039386-037856.jpg"},{"num":34,"title":"Increvables !","isbn":"9782747029032","publishedAt":"2009-04-02","publisher":"Bayard Presse","cover":"https://www.bdovore.com/images/couv/CV-068468-069074.jpg"}]},{"id":"bdovore:37141","name":"Bergères guerrières","genre":"Jeunesse","total":4,"ongoing":false,"description":null,"cover":"https://www.bdovore.com/images/couv/CV-381590-402668.jpg","tomes":[{"num":0,"title":"Coffret Bergères guerrières, Tomes 1 à 4","isbn":"9782344055502","publishedAt":"2022-11-23","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-360230-379869.jpg"},{"num":0,"title":"Les novices","isbn":"9782344061763","publishedAt":"2024-10-16","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-381590-402668.jpg"},{"num":1,"title":"La relève","isbn":"9782344016459","publishedAt":"2017-06-28","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-252918-267620.jpg"},{"num":2,"title":"La menace","isbn":"9782344024096","publishedAt":"2018-09-05","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-279233-295250.jpg"},{"num":3,"title":"Le périple","isbn":"9782344034231","publishedAt":"2019-09-25","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-308890-325674.jpg"},{"num":4,"title":"L'abîme","isbn":"9782344042175","publishedAt":"2021-11-03","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-349495-368275.jpg"}]},{"id":"bdovore:53727","name":"Brume","genre":"Jeunesse","total":5,"ongoing":true,"description":null,"cover":"https://www.bdovore.com/images/couv/CV-417722-440082.jpg","tomes":[{"num":1,"title":"Le réveil du dragon","isbn":"9782344051733","publishedAt":"2023-04-26","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-362576-382544.jpg"},{"num":2,"title":"La forêt des âmes perdues","isbn":"9782344056424","publishedAt":"2024-01-03","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-370407-390864.jpg"},{"num":3,"title":"La source des secrets","isbn":"9782344061329","publishedAt":"2024-10-23","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-381588-402666.jpg"},{"num":4,"title":"La nouvelle sorcière","isbn":"9782344067710","publishedAt":"2025-10-01","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-394962-416531.jpg"},{"num":5,"title":"La cité d'Ys","isbn":"9782344074398","publishedAt":"2026-10-21","publisher":"Glénat","cover":"https://www.bdovore.com/images/couv/CV-417722-440082.jpg"}]},{"id":"bdovore:49343","name":"Le grimoire d'Elfie","genre":"Aventures Fantastiques","total":7,"ongoing":true,"description":null,"cover":"https://www.bdovore.com/images/couv/CV-414983-437257.jpg","tomes":[{"num":1,"title":"L'île presque","isbn":"9782490735105","publishedAt":"2021-02-03","publisher":"Bamboo Éditions","cover":"https://www.bdovore.com/images/couv/CV-345719-364273.jpg"},{"num":2,"title":"Le dit des cigales","isbn":"9782382330050","publishedAt":"2021-11-17","publisher":"Bamboo Éditions","cover":"https://www.bdovore.com/images/couv/CV-352643-371639.jpg"},{"num":3,"title":"Malaventure en pain d'épice","isbn":"9782382330951","publishedAt":"2022-11-16","publisher":"Bamboo Éditions","cover":"https://www.bdovore.com/images/couv/CV-359988-379608.jpg"},{"num":4,"title":"Le trésor de la tricomancienne","isbn":"9782382331071","publishedAt":"2023-11-08","publisher":"Bamboo Éditions","cover":"https://www.bdovore.com/images/couv/CV-368568-388964.jpg"},{"num":5,"title":"Les reflets de Walpurgis","isbn":"9782382332481","publishedAt":"2024-11-06","publisher":"Bamboo Éditions","cover":"https://www.bdovore.com/images/couv/CV-380989-402012.webp"},{"num":6,"title":"Le sortilège Corse","isbn":"9782382333105","publishedAt":"2025-11-05","publisher":"Bamboo Éditions","cover":"https://www.bdovore.com/images/couv/CV-396197-417831.jpg"},{"num":7,"title":"La rivière aux étoiles","isbn":"9782382333709","publishedAt":"2026-10-28","publisher":"Bamboo Éditions","cover":"https://www.bdovore.com/images/couv/CV-414983-437257.jpg"}]},{"id":"bdovore:6898","name":"Les Légendaires","genre":"Héroic - Fantasy","total":23,"ongoing":true,"description":"On les surnomme “les Légendaires”. Ils sont cinq. Ils incarnent les vraies valeurs oubliées (noblesse, courage, intelligence, etc.). Ils sont grands… Ou plutôt, ils l’étaient… Lors de leur dernier combat contre les forces maléfiques, les choses se sont mal terminées, et tous les adultes sont redevenus des enfants ! Aujourd’hui les Légendaires doivent racheter leur bévue…","cover":"https://www.bdovore.com/images/couv/CV-337793-356092.jpg","tomes":[{"num":1,"title":"La pierre de Jovénia","isbn":"9782847894509","publishedAt":"2004-08-25","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-026876-022812.jpg"},{"num":2,"title":"Le Gardien","isbn":"9782847894776","publishedAt":"2004-11-17","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-028446-024604.jpg"},{"num":3,"title":"Frères ennemis","isbn":"9782847897616","publishedAt":"2005-05-11","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-029655-025936.jpg"},{"num":4,"title":"Le réveil du Kréa-Kaos","isbn":"9782847899214","publishedAt":"2005-10-01","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-033088-030081.jpg"},{"num":5,"title":"Coeur du passé","isbn":"9782756000909","publishedAt":"2006-03-08","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-034454-031666.jpg"},{"num":6,"title":"Main du futur","isbn":"9782756002927","publishedAt":"2006-10-04","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-036942-034365.jpg"},{"num":7,"title":"Aube et crépuscule","isbn":"9782756005324","publishedAt":"2007-03-07","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-040477-039259.jpg"},{"num":8,"title":"Griffes et plumes","isbn":"9782756005812","publishedAt":"2007-10-24","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-044525-043736.jpg"},{"num":9,"title":"Le cycle d'Anathos : L'Alystory","isbn":"9782756011790","publishedAt":"2008-09-10","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-055175-055111.jpg"},{"num":10,"title":"Le cycle d'Anathos : La marque du destin","isbn":"9782756015880","publishedAt":"2009-03-04","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-060691-060978.jpg"},{"num":11,"title":"Le cycle d'Anathos : Versus inferno","isbn":"9782756015897","publishedAt":"2009-10-07","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-072473-073251.jpg"},{"num":12,"title":"Le cycle d'Anathos : Renaissance","isbn":"9782756019949","publishedAt":"2010-03-24","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-077804-079216.jpg"},{"num":13,"title":"Sang royal","isbn":"9782756023410","publishedAt":"2010-11-03","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-089631-092210.jpg"},{"num":14,"title":"L'héritage du mal","isbn":"9782756023427","publishedAt":"2011-10-26","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-114574-119124.jpg"},{"num":15,"title":"Amour mortel","isbn":"9782756023434","publishedAt":"2012-10-24","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-141586-147456.jpg"},{"num":16,"title":"L'éternité ne dure qu'un temps","isbn":"9782756032634","publishedAt":"2013-10-16","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-166300-173843.jpg"},{"num":17,"title":"L'exode de Kalandre","isbn":"9782756053585","publishedAt":"2014-10-22","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-192098-201095.jpg"},{"num":18,"title":"La fin de l'histoire ?","isbn":"9782756053578","publishedAt":"2015-09-30","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-214085-226025.jpg"},{"num":19,"title":"World without : Artémus le légendaire","isbn":"9782756053592","publishedAt":"2016-10-26","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-240544-254171.jpg"},{"num":20,"title":"World without : Le royaume des larmes","isbn":"9782756064765","publishedAt":"2017-10-04","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-261324-276627.jpg"},{"num":21,"title":"La bataille du néant","isbn":"9782756064772","publishedAt":"2018-10-31","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-284224-300341.jpg"},{"num":22,"title":"Les Eveillés","isbn":"9782413013099","publishedAt":"2019-10-09","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-314193-331166.jpg"},{"num":23,"title":"Les cicatrices du monde","isbn":"9782413024507","publishedAt":"2020-10-14","publisher":"Delcourt","cover":"https://www.bdovore.com/images/couv/CV-337793-356092.jpg"}]}]`);
+function searchCatalog(term) {
+  const q = term.trim().toLowerCase();
+  if (!q) return [];
+  return catalog.filter((s) => s.name.toLowerCase().includes(q)).slice(0, 8);
+}
+function catalogSeries(id) {
+  return catalog.find((s) => s.id === id) || null;
+}
+function catalogTomes(id) {
+  const s = catalogSeries(id);
+  if (!s) return [];
+  return s.tomes.filter((t) => t.num > 0).sort((a, b) => a.num - b.num);
+}
 function openAdd() {
   const host = $("modalHost");
   host.innerHTML = `
@@ -309,29 +329,70 @@ function openAdd() {
         <button class="close" aria-label="Fermer">&times;</button>
         <h2>Nouvelle serie</h2>
         <label class="field">
-          Titre
-          <input type="text" id="addTitle" placeholder="Ariol" autofocus />
+          Chercher dans le catalogue
+          <input type="text" id="catalogSearch" placeholder="Ariol, Brume..." autofocus />
         </label>
-        <label class="field">
-          Auteur (optionnel)
-          <input type="text" id="addAuthor" />
-        </label>
-        <label class="field">
-          Editeur (optionnel)
-          <input type="text" id="addPublisher" />
-        </label>
-        <label class="field">
-          Nombre de tomes publies (si connu)
-          <input type="number" min="0" id="addTotal" placeholder="?" />
-        </label>
-        <div class="sheet-actions">
-          <button id="addConfirm">Ajouter</button>
-        </div>
+        <div id="catalogResults"></div>
+        <details id="manualDetails">
+          <summary>Ajouter manuellement (serie absente du catalogue)</summary>
+          <label class="field">
+            Titre
+            <input type="text" id="addTitle" />
+          </label>
+          <label class="field">
+            Auteur (optionnel)
+            <input type="text" id="addAuthor" />
+          </label>
+          <label class="field">
+            Editeur (optionnel)
+            <input type="text" id="addPublisher" />
+          </label>
+          <label class="field">
+            Nombre de tomes publies (si connu)
+            <input type="number" min="0" id="addTotal" placeholder="?" />
+          </label>
+          <div class="sheet-actions">
+            <button id="addConfirm">Ajouter</button>
+          </div>
+        </details>
       </div>
     </div>`;
   host.querySelector(".close").addEventListener("click", closeModal);
   host.querySelector(".modal-backdrop").addEventListener("click", (e) => {
     if (e.target.classList.contains("modal-backdrop")) closeModal();
+  });
+  const confirmAdd = (payload) => {
+    addSeries(payload);
+    closeModal();
+    libraryChanged();
+    toast(`"${payload.title}" ajoute.`);
+  };
+  $("catalogSearch").addEventListener("input", (e) => {
+    const results = searchCatalog(e.target.value);
+    $("catalogResults").innerHTML = results.map((s) => `
+      <button class="card catalog-hit" data-id="${esc(s.id)}">
+        <div class="cover" style="${s.cover ? `background-image:url('${esc(s.cover)}')` : ""}">
+          ${s.cover ? "" : `<span class="cover-fallback">${esc(s.name.slice(0, 2).toUpperCase())}</span>`}
+        </div>
+        <div class="card-body">
+          <div class="card-title">${esc(s.name)}</div>
+          <div class="card-meta">${s.total ? `${s.total} tomes` : "?"}</div>
+        </div>
+      </button>`).join("");
+    $("catalogResults").querySelectorAll(".catalog-hit").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.dataset.id;
+        const hit = results.find((r) => r.id === id);
+        confirmAdd({
+          title: hit.name,
+          publisher: "",
+          total: hit.total || null,
+          cover: hit.cover || "",
+          catalogId: hit.id,
+          tomes: catalogTomes(hit.id)
+        });
+      });
+    });
   });
   $("addConfirm").addEventListener("click", () => {
     const title = $("addTitle").value.trim();
@@ -340,15 +401,12 @@ function openAdd() {
       return;
     }
     const total = parseInt($("addTotal").value, 10);
-    addSeries({
+    confirmAdd({
       title,
       author: $("addAuthor").value.trim(),
       publisher: $("addPublisher").value.trim(),
       total: Number.isFinite(total) && total > 0 ? total : null
     });
-    closeModal();
-    libraryChanged();
-    toast(`"${title}" ajoute.`);
   });
 }
 $("addBtn").addEventListener("click", openAdd);
@@ -491,6 +549,17 @@ body {
 .tome.owned { background: var(--owned); color: #16150F; border-color: var(--owned); }
 
 .sheet-actions { margin-top: 16px; display: flex; justify-content: flex-end; }
+
+#catalogResults {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin: 4px 0 16px;
+}
+#catalogResults .card { min-height: unset; }
+#catalogResults:empty { display: none; }
+
+#manualDetails summary { color: var(--dim); font-size: 0.85rem; cursor: pointer; margin: 8px 0; }
 
 .toast {
   position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);

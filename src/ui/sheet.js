@@ -15,9 +15,12 @@ function render(id){
   const owned = new Set(parseTomes(s.owned));
   const size = gridSize(s.total, owned.size ? Math.max(...owned) : 0);
 
-  const cells = Array.from({ length: size }, (_, i) => i + 1).map(n => `
-    <button class="tome ${owned.has(n) ? "owned" : ""}" data-n="${n}">${n}</button>
-  `).join("");
+  const tomeTitle = n => s.tomes && s.tomes.find(t => t.num === n)?.title;
+  const cells = Array.from({ length: size }, (_, i) => i + 1).map(n => {
+    const label = tomeTitle(n);
+    const aria = `Tome ${n}${label ? ` — ${label}` : ""}`;
+    return `<button class="tome ${owned.has(n) ? "owned" : ""}" data-n="${n}" aria-label="${esc(aria)}" ${label ? `title="${esc(label)}"` : ""}>${n}</button>`;
+  }).join("");
 
   host.innerHTML = `
     <div class="modal-backdrop">
