@@ -17829,40 +17829,5 @@
         "cover": "https://www.bdovore.com/images/couv/CV-382600-403585.jpg"
       }
     ]
-  },
-  {
-    "id": "bdovore:29328",
-    "name": "Le Teckel",
-    "genre": "Aventures Humoristiques",
-    "total": 3,
-    "ongoing": true,
-    "description": null,
-    "cover": "https://www.bdovore.com/images/couv/CV-187911-196760.jpg",
-    "tomes": [
-      {
-        "num": 1,
-        "title": "Le Teckel, Tome 1",
-        "isbn": "9782203089686",
-        "publishedAt": "2014-08-27",
-        "publisher": "Casterman",
-        "cover": "https://www.bdovore.com/images/couv/CV-187911-196760.jpg"
-      },
-      {
-        "num": 2,
-        "title": "Les affaires reprennent",
-        "isbn": "9782203096547",
-        "publishedAt": "2015-10-07",
-        "publisher": "Casterman",
-        "cover": "https://www.bdovore.com/images/couv/CV-214876-226856.jpg"
-      },
-      {
-        "num": 3,
-        "title": "Votez le Teckel",
-        "isbn": "9782203101630",
-        "publishedAt": "2017-01-11",
-        "publisher": "Casterman",
-        "cover": "https://www.bdovore.com/images/couv/CV-243639-257504.jpg"
-      }
-    ]
   }
 ]
