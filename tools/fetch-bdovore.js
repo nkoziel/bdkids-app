@@ -104,6 +104,14 @@ async function main() {
       .filter(t => Number.isFinite(t.num))
       .sort((a, b) => a.num - b.num);
 
+    /* BDovore's own series-level cover (IMG_COUV_SERIE) is sometimes a spin-off or "best of"
+     * edition rather than the actual series — e.g. Titeuf's series cover is a "Nadia" album by
+     * the same author, not a Titeuf tome. Tome 1's own cover is a far more reliable pick when
+     * available; the series-level cover is only a fallback for a series with no positive tome
+     * numbers at all. */
+    const tome1Cover = tomes.find(t => t.num === 1)?.cover;
+    const seriesCover = serie.IMG_COUV_SERIE ? `https://www.bdovore.com/images/couv/${serie.IMG_COUV_SERIE}` : null;
+
     catalog.push({
       id: `bdovore:${serie.ID_SERIE}`,
       name: serie.NOM_SERIE,
@@ -111,7 +119,7 @@ async function main() {
       total: Number(serie.NB_TOME) || tomes.length || null,
       ongoing: serie.FLG_FINI_SERIE === '1',
       description: serie.HISTOIRE_SERIE || null,
-      cover: serie.IMG_COUV_SERIE ? `https://www.bdovore.com/images/couv/${serie.IMG_COUV_SERIE}` : null,
+      cover: tome1Cover || seriesCover,
       tomes,
     });
     console.log(`${serie.NOM_SERIE}: ${tomes.length} tomes`);
