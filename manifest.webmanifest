@@ -1,0 +1,19 @@
+{
+  "name": "BDkids — bibliothèque BD",
+  "short_name": "BDkids",
+  "description": "La bibliothèque BD des enfants : quels tomes sont déjà possédés, série par série.",
+  "id": "/bdkids-app/",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#D9D7CA",
+  "theme_color": "#16150F",
+  "lang": "fr",
+  "categories": ["books", "kids", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

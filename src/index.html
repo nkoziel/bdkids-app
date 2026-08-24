@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BDkids — bibliothèque BD</title>
+<meta name="description" content="La bibliothèque BD des enfants : quels tomes sont déjà possédés, série par série.">
+<meta name="theme-color" content="#16150F">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <h1>BDkids</h1>
+    <p class="kicker">Bibliothèque BD — tomes possédés</p>
+  </header>
+  <section id="viewLibrary">
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Série, auteur…" aria-label="Chercher">
+    </div>
+    <div id="results"></div>
+  </section>
+</div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>

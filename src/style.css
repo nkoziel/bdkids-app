@@ -1,0 +1,37 @@
+:root {
+  --paper: #16150F;
+  --ink: #EDEAE0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.mast h1 {
+  margin: 0;
+}
+
+.kicker {
+  opacity: 0.7;
+  margin: 0.25rem 0 1rem;
+}
+
+.toolbar input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #444;
+  background: transparent;
+  color: inherit;
+}

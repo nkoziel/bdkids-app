@@ -1,0 +1,15 @@
+# Dépendances / build
+node_modules/
+dist/
+*.log
+
+# Secrets — ne JAMAIS committer
+.env
+.env.*
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

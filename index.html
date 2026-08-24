@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BDkids — bibliothèque BD</title>
+<meta name="description" content="La bibliothèque BD des enfants : quels tomes sont déjà possédés, série par série.">
+<meta name="theme-color" content="#16150F">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script type="module" crossorigin>(function polyfill() {
+  const relList = document.createElement("link").relList;
+  if (relList && relList.supports && relList.supports("modulepreload")) {
+    return;
+  }
+  for (const link of document.querySelectorAll('link[rel="modulepreload"]')) {
+    processPreload(link);
+  }
+  new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type !== "childList") {
+        continue;
+      }
+      for (const node of mutation.addedNodes) {
+        if (node.tagName === "LINK" && node.rel === "modulepreload")
+          processPreload(node);
+      }
+    }
+  }).observe(document, { childList: true, subtree: true });
+  function getFetchOpts(link) {
+    const fetchOpts = {};
+    if (link.integrity) fetchOpts.integrity = link.integrity;
+    if (link.referrerPolicy) fetchOpts.referrerPolicy = link.referrerPolicy;
+    if (link.crossOrigin === "use-credentials")
+      fetchOpts.credentials = "include";
+    else if (link.crossOrigin === "anonymous") fetchOpts.credentials = "omit";
+    else fetchOpts.credentials = "same-origin";
+    return fetchOpts;
+  }
+  function processPreload(link) {
+    if (link.ep)
+      return;
+    link.ep = true;
+    const fetchOpts = getFetchOpts(link);
+    fetch(link.href, fetchOpts);
+  }
+})();
+document.getElementById("results").textContent = "Bibliothèque vide pour le moment.";</script>
+  <style rel="stylesheet" crossorigin>:root {
+  --paper: #16150F;
+  --ink: #EDEAE0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.mast h1 {
+  margin: 0;
+}
+
+.kicker {
+  opacity: 0.7;
+  margin: 0.25rem 0 1rem;
+}
+
+.toolbar input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #444;
+  background: transparent;
+  color: inherit;
+}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <h1>BDkids</h1>
+    <p class="kicker">Bibliothèque BD — tomes possédés</p>
+  </header>
+  <section id="viewLibrary">
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Série, auteur…" aria-label="Chercher">
+    </div>
+    <div id="results"></div>
+  </section>
+</div>
+</body>
+</html>
