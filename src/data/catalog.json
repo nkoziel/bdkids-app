@@ -17730,5 +17730,139 @@
         "cover": "https://www.bdovore.com/images/couv/CV-399714-421532.jpg"
       }
     ]
+  },
+  {
+    "id": "bdovore:29932",
+    "name": "Avni",
+    "genre": "Jeunesse",
+    "total": 11,
+    "ongoing": true,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-193549-202599.jpg",
+    "tomes": [
+      {
+        "num": 1,
+        "title": "Animal vraiment non identifié",
+        "isbn": "9782745957535",
+        "publishedAt": "2014-10-08",
+        "publisher": "Bayard Presse",
+        "cover": "https://www.bdovore.com/images/couv/CV-193549-202599.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Un super-copain !",
+        "isbn": "9782745968494",
+        "publishedAt": "2015-10-21",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-216470-228607.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Récré-action",
+        "isbn": "9782745981998",
+        "publishedAt": "2016-11-09",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-262411-278013.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Avni s'en mêle",
+        "isbn": "9782745994790",
+        "publishedAt": "2017-10-25",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-262410-278012.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Le seul, l'unique",
+        "isbn": "9782408007454",
+        "publishedAt": "2018-10-10",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-313345-330302.jpg"
+      },
+      {
+        "num": 6,
+        "title": "Une vie rose bonbon !",
+        "isbn": "9782408014858",
+        "publishedAt": "2019-09-11",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-313344-330301.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Machine à blagues",
+        "isbn": "9782408022808",
+        "publishedAt": "2020-09-09",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-351948-370911.jpg"
+      },
+      {
+        "num": 8,
+        "title": "Ca déménage !",
+        "isbn": "9782408033491",
+        "publishedAt": "2021-09-15",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-351947-370910.jpg"
+      },
+      {
+        "num": 9,
+        "title": "Une boule d'énergie",
+        "isbn": "9782408041915",
+        "publishedAt": "2022-09-07",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-358914-378445.jpg"
+      },
+      {
+        "num": 10,
+        "title": "L'essayer, c'est l'adopter !",
+        "isbn": "9782408047887",
+        "publishedAt": "2023-09-13",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-365213-385412.jpg"
+      },
+      {
+        "num": 11,
+        "title": "Extra-marrant",
+        "isbn": "9791036370991",
+        "publishedAt": "2024-09-18",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-382600-403585.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:29328",
+    "name": "Le Teckel",
+    "genre": "Aventures Humoristiques",
+    "total": 3,
+    "ongoing": true,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-187911-196760.jpg",
+    "tomes": [
+      {
+        "num": 1,
+        "title": "Le Teckel, Tome 1",
+        "isbn": "9782203089686",
+        "publishedAt": "2014-08-27",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-187911-196760.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Les affaires reprennent",
+        "isbn": "9782203096547",
+        "publishedAt": "2015-10-07",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-214876-226856.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Votez le Teckel",
+        "isbn": "9782203101630",
+        "publishedAt": "2017-01-11",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-243639-257504.jpg"
+      }
+    ]
   }
 ]
