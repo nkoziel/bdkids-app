@@ -73,5 +73,20 @@
   { "name": "Zap Collège" },
   { "name": "Grabouillon" },
   { "name": "Le monde de Milo" },
-  { "name": "Fraise et chocolat" }
+  { "name": "Fraise et chocolat" },
+
+  { "name": "Nicolas Sempé", "id_serie": 3523 },
+  { "name": "Pico Bogue" },
+  { "name": "Quatre soeurs", "id_serie": 19530 },
+  { "name": "Les Vermeilles" },
+
+  { "name": "Sorceline" },
+  { "name": "Hilda" },
+  { "name": "Mélusine" },
+  { "name": "Chevaliers d'Émeraude", "id_serie": 21046 },
+  { "name": "Amulet", "id_serie": 16258 },
+  { "name": "Bone" },
+  { "name": "La Balade de Yaya" },
+  { "name": "Le Château des Étoiles" },
+  { "name": "Les Dragouilles" }
 ]

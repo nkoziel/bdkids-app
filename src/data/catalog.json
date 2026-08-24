@@ -16224,5 +16224,1348 @@
         "cover": "https://www.bdovore.com/images/couv/?source=CV-047526-046905.jpg"
       }
     ]
+  },
+  {
+    "id": "bdovore:3523",
+    "name": "Le Petit Nicolas (Sempé)",
+    "genre": "Humour",
+    "total": 5,
+    "ongoing": false,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-017943-013937.jpg",
+    "tomes": [
+      {
+        "num": 0,
+        "title": "Coffret Le Petit Nicolas",
+        "isbn": "9782915732863",
+        "publishedAt": "2015-10-15",
+        "publisher": "IMAV éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-218558-230879.jpg"
+      },
+      {
+        "num": 0,
+        "title": "La bande dessinée originale",
+        "isbn": "9782365901369",
+        "publishedAt": "2017-10-11",
+        "publisher": "IMAV éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-262166-277752.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Le petit Nicolas",
+        "isbn": "9782207222799",
+        "publishedAt": "1993-07-01",
+        "publisher": "Denoël",
+        "cover": "https://www.bdovore.com/images/couv/CV-017943-013937.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Le petit Nicolas : Le ballon et autres histoires inédites",
+        "isbn": "9782915732214",
+        "publishedAt": "2009-03-05",
+        "publisher": "IMAV éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-261437-276775.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Intégrale Le Petit Nicolas, Volume 1",
+        "isbn": "9782365901666",
+        "publishedAt": "2022-10-27",
+        "publisher": "IMAV éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-360786-380509.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Les récrés du petit Nicolas",
+        "isbn": null,
+        "publishedAt": "1980-05-01",
+        "publisher": "Denoël",
+        "cover": "https://www.bdovore.com/images/couv/CV-017944-01.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Intégrale Le Petit Nicolas, Volume 2",
+        "isbn": "9782365901673",
+        "publishedAt": "2022-10-27",
+        "publisher": "IMAV éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-360785-380508.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Les vacances du petit Nicolas",
+        "isbn": null,
+        "publishedAt": "1981-07-01",
+        "publisher": "Denoël",
+        "cover": "https://www.bdovore.com/images/couv/CV-017945-01.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Le petit Nicolas et les copains",
+        "isbn": null,
+        "publishedAt": "1982-02-01",
+        "publisher": "Denoël",
+        "cover": "https://www.bdovore.com/images/couv/CV-017946-01.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Le petit Nicolas a des ennuis",
+        "isbn": null,
+        "publishedAt": "1997-05-01",
+        "publisher": "Denoël",
+        "cover": "https://www.bdovore.com/images/couv/CV-017947-01.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Joachim a des ennuis",
+        "isbn": null,
+        "publishedAt": "1980-04-01",
+        "publisher": "Denoël",
+        "cover": "https://www.bdovore.com/images/couv/CV-059142-059366.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:13805",
+    "name": "Pico Bogue",
+    "genre": "Humour",
+    "total": 18,
+    "ongoing": true,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-053235-052970.jpg",
+    "tomes": [
+      {
+        "num": 0,
+        "title": "L'étymologie avec Pico Bogue, Volume 2",
+        "isbn": "9782205082852",
+        "publishedAt": "2019-09-27",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-361395-381239.jpg"
+      },
+      {
+        "num": 0,
+        "title": "Jeux et Gags",
+        "isbn": null,
+        "publishedAt": "2017-10-01",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-331284-349273.jpg"
+      },
+      {
+        "num": 0,
+        "title": "L'étymologie avec Pico Bogue, volume 1",
+        "isbn": "9782205078466",
+        "publishedAt": "2018-09-01",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-347934-366607.jpg"
+      },
+      {
+        "num": 1,
+        "title": "La vie et moi",
+        "isbn": "9782205060744",
+        "publishedAt": "2008-05-16",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-053235-052970.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Intégrale Pico Bogue, Tomes 1 à 3",
+        "isbn": "9782205076240",
+        "publishedAt": "2016-11-25",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-247593-261940.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Situations critiques",
+        "isbn": "9782205062069",
+        "publishedAt": "2009-03-13",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-061129-061444.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Question d'équilibre",
+        "isbn": "9782205063578",
+        "publishedAt": "2009-11-13",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-073832-074721.jpg"
+      },
+      {
+        "num": 3,
+        "title": "L'étymologie avec Pico Bogue, Volume 3",
+        "isbn": "9782205089639",
+        "publishedAt": "2021-03-19",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-361553-381405.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Pico love",
+        "isbn": "9782205065213",
+        "publishedAt": "2010-11-12",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-090047-092650.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Légère contrariété",
+        "isbn": "9782205068153",
+        "publishedAt": "2011-11-04",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-115591-120195.jpg"
+      },
+      {
+        "num": 6,
+        "title": "Restons calmes",
+        "isbn": "9782205071436",
+        "publishedAt": "2013-11-08",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-167447-175146.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Cadence infernale",
+        "isbn": "9782205072891",
+        "publishedAt": "2014-10-31",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-193009-202026.jpg"
+      },
+      {
+        "num": 8,
+        "title": "L'original",
+        "isbn": "9782205074154",
+        "publishedAt": "2015-11-06",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-215898-227946.jpg"
+      },
+      {
+        "num": 9,
+        "title": "Carnet de bord",
+        "isbn": "9782205075649",
+        "publishedAt": "2016-11-10",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-241042-254698.jpg"
+      },
+      {
+        "num": 10,
+        "title": "L'amour de l'art",
+        "isbn": "9782205077421",
+        "publishedAt": "2017-11-03",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-261747-277178.jpg"
+      },
+      {
+        "num": 11,
+        "title": "L'heure est grave",
+        "isbn": "9782205078015",
+        "publishedAt": "2019-04-19",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-297680-314196.jpg"
+      },
+      {
+        "num": 12,
+        "title": "Inséparables",
+        "isbn": "9782205084924",
+        "publishedAt": "2020-09-25",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-337869-356169.jpg"
+      },
+      {
+        "num": 13,
+        "title": "Sur le chemin",
+        "isbn": "9782205089097",
+        "publishedAt": "2021-09-17",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-350609-369472.jpg"
+      },
+      {
+        "num": 14,
+        "title": "Un calme fou",
+        "isbn": "9782205203172",
+        "publishedAt": "2022-09-23",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-357976-377421.jpg"
+      },
+      {
+        "num": 15,
+        "title": "Les heures et les jours",
+        "isbn": "9782205208023",
+        "publishedAt": "2023-10-13",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-366092-386356.jpg"
+      },
+      {
+        "num": 16,
+        "title": "Haïku",
+        "isbn": "9782205211696",
+        "publishedAt": "2024-10-04",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-381528-402603.jpg"
+      },
+      {
+        "num": 17,
+        "title": "Questions éxistentielles",
+        "isbn": "9782205213454",
+        "publishedAt": "2025-10-03",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-394860-416427.jpg"
+      },
+      {
+        "num": 18,
+        "title": "Du vent dans les pages",
+        "isbn": "9782205215403",
+        "publishedAt": "2026-10-02",
+        "publisher": "Dargaud",
+        "cover": "https://www.bdovore.com/images/couv/CV-418349-440748.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:19530",
+    "name": "Quatre soeurs",
+    "genre": "Fantastique-Etrange",
+    "total": 4,
+    "ongoing": false,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-360212-379851.jpg",
+    "tomes": [
+      {
+        "num": 1,
+        "title": "Intégrale Quatre soeurs, Tomes 1 et 2",
+        "isbn": "9782810204526",
+        "publishedAt": "2022-10-26",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-360212-379851.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Enid",
+        "isbn": "9782756020082",
+        "publishedAt": "2011-01-05",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-093600-096691.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Hortense",
+        "isbn": "9782369810490",
+        "publishedAt": "2014-01-08",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-173012-181145.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Intégrale Quatre soeurs, Tomes 3 et 4",
+        "isbn": "9782810206308",
+        "publishedAt": "2023-06-14",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-365432-385655.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Bettina",
+        "isbn": "9782369811282",
+        "publishedAt": "2016-01-20",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-220165-232596.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Geneviève",
+        "isbn": "9782369811329",
+        "publishedAt": "2018-01-24",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-265897-281633.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:44758",
+    "name": "Les vermeilles",
+    "genre": "Jeunesse",
+    "total": 1,
+    "ongoing": false,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-313633-330600.jpg",
+    "tomes": [
+      {
+        "num": 0,
+        "title": "Les vermeilles",
+        "isbn": "9782330126209",
+        "publishedAt": "2019-10-02",
+        "publisher": "Actes Sud",
+        "cover": "https://www.bdovore.com/images/couv/CV-313633-330600.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:39222",
+    "name": "Sorceline",
+    "genre": "Aventures Fantastiques",
+    "total": 8,
+    "ongoing": true,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-269456-285308.jpg",
+    "tomes": [
+      {
+        "num": 0,
+        "title": "Coffret Sorceline, Tomes 1 à 3",
+        "isbn": "9782749309750",
+        "publishedAt": "2021-10-13",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-351729-370679.jpg"
+      },
+      {
+        "num": 0,
+        "title": "Coffret Sorceline, Tomes 1 à 4",
+        "isbn": "9782749309903",
+        "publishedAt": "2022-10-26",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-360160-379793.jpg"
+      },
+      {
+        "num": 0,
+        "title": "Coffret Sorceline, Tomes 1 à 5",
+        "isbn": "9782749310114",
+        "publishedAt": "2023-11-22",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-369003-389422.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Un jour, je serai fantasticologue !",
+        "isbn": "9782749308524",
+        "publishedAt": "2018-04-18",
+        "publisher": "Glénat",
+        "cover": "https://www.bdovore.com/images/couv/CV-269456-285308.jpg"
+      },
+      {
+        "num": 2,
+        "title": "La fille qui aimait les animonstres",
+        "isbn": "9782749308975",
+        "publishedAt": "2019-04-24",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-299452-315985.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Au coeur de mes zoorigines",
+        "isbn": "9782749309200",
+        "publishedAt": "2020-10-14",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-338166-356471.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Rêve et cauchemort !",
+        "isbn": "9782749309477",
+        "publishedAt": "2021-10-13",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-351953-370916.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Le Saigneur de Vorn",
+        "isbn": "9782749309804",
+        "publishedAt": "2022-10-26",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-359414-378975.jpg"
+      },
+      {
+        "num": 6,
+        "title": "Mystère et boule de gnome !",
+        "isbn": "9782749310008",
+        "publishedAt": "2023-10-18",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-366749-387032.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Le Serment d'hypocrite",
+        "isbn": "9782749310251",
+        "publishedAt": "2024-10-30",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-382898-403893.jpg"
+      },
+      {
+        "num": 8,
+        "title": "Le jeu des Mille Vorn",
+        "isbn": "9782749310381",
+        "publishedAt": "2025-10-22",
+        "publisher": "Vents d'Ouest",
+        "cover": "https://www.bdovore.com/images/couv/CV-395893-417520.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:24076",
+    "name": "Hilda",
+    "genre": "Aventures Fantastiques",
+    "total": 6,
+    "ongoing": false,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-120239-125072.jpg",
+    "tomes": [
+      {
+        "num": 1,
+        "title": "Hilda et le géant de la nuit",
+        "isbn": "9781907704369",
+        "publishedAt": "2011-12-09",
+        "publisher": "Nobrow",
+        "cover": "https://www.bdovore.com/images/couv/CV-120239-125072.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Intégrale Hilda, Tomes 1 à 4",
+        "isbn": "9782203314955",
+        "publishedAt": "2026-09-09",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-419328-442136.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Hilda et le troll",
+        "isbn": "9781907704543",
+        "publishedAt": "2012-10-02",
+        "publisher": "Nobrow",
+        "cover": "https://www.bdovore.com/images/couv/CV-142552-148541.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Hilda et la parade des oiseaux",
+        "isbn": "9781907704499",
+        "publishedAt": "2012-10-23",
+        "publisher": "Nobrow",
+        "cover": "https://www.bdovore.com/images/couv/CV-142553-148542.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Hilda et le chien noir",
+        "isbn": "9782203081239",
+        "publishedAt": "2014-04-30",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-181144-189670.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Hilda et la forêt de pierres",
+        "isbn": "9782203097568",
+        "publishedAt": "2017-01-04",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-244026-257950.jpg"
+      },
+      {
+        "num": 6,
+        "title": "Hilda et le roi de la montagne",
+        "isbn": "9782203097551",
+        "publishedAt": "2020-01-08",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-317794-334839.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:1052",
+    "name": "Mélusine",
+    "genre": "Humour",
+    "total": 27,
+    "ongoing": false,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-007343-005511.jpg",
+    "tomes": [
+      {
+        "num": 0,
+        "title": "Pack cadeau Tomes 1 à 9",
+        "isbn": null,
+        "publishedAt": null,
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007342-01.JPG"
+      },
+      {
+        "num": 0,
+        "title": "Mélusine",
+        "isbn": null,
+        "publishedAt": "2000-01-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-043850-042944.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Sortilèges",
+        "isbn": "9782800121765",
+        "publishedAt": "1995-02-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007343-005511.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Le bal des vampires",
+        "isbn": "9782800122151",
+        "publishedAt": "1995-08-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007344-005512.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Inferno",
+        "isbn": "9782800123196",
+        "publishedAt": "1996-06-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007345-005513.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Histoires à lire au coin du feu",
+        "isbn": "9782800124476",
+        "publishedAt": "1997-05-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007346-005514.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Philtres d'amour",
+        "isbn": "9782800125886",
+        "publishedAt": "1998-05-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007347-005515.jpg"
+      },
+      {
+        "num": 6,
+        "title": "Farfadets et korrigans",
+        "isbn": "9782800127682",
+        "publishedAt": "1999-05-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007348-005516.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Hocus Pocus",
+        "isbn": "9782800129167",
+        "publishedAt": "2000-03-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007349-005517.jpg"
+      },
+      {
+        "num": 8,
+        "title": "Halloween",
+        "isbn": "9782800129563",
+        "publishedAt": "2000-10-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007350-005518.jpg"
+      },
+      {
+        "num": 9,
+        "title": "Hypnosis",
+        "isbn": "9782800131092",
+        "publishedAt": "2001-10-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007351-005519.jpg"
+      },
+      {
+        "num": 10,
+        "title": "Contes De La Pleine Lune",
+        "isbn": "9782800132587",
+        "publishedAt": "2002-10-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007352-005520.jpg"
+      },
+      {
+        "num": 11,
+        "title": "A L'ecole Des Malefices",
+        "isbn": "9782800133560",
+        "publishedAt": "2003-09-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-007353-005521.jpg"
+      },
+      {
+        "num": 12,
+        "title": "La belle et la bête",
+        "isbn": "9782800135113",
+        "publishedAt": "2004-10-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-027185-023135.jpg"
+      },
+      {
+        "num": 13,
+        "title": "Superstitions",
+        "isbn": "9782800136516",
+        "publishedAt": "2005-10-05",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-031470-027865.jpg"
+      },
+      {
+        "num": 14,
+        "title": "La cuisine du Diable",
+        "isbn": "9782800138046",
+        "publishedAt": "2006-06-07",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-035550-032859.jpg"
+      },
+      {
+        "num": 15,
+        "title": "L'apprentie sorcière",
+        "isbn": "9782800138824",
+        "publishedAt": "2007-05-02",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-041601-040432.jpg"
+      },
+      {
+        "num": 16,
+        "title": "Ballet enchanté",
+        "isbn": "9782800140346",
+        "publishedAt": "2008-05-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-052952-052657.jpg"
+      },
+      {
+        "num": 17,
+        "title": "Sang pour sang",
+        "isbn": "9782800143996",
+        "publishedAt": "2009-05-07",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-064285-064669.jpg"
+      },
+      {
+        "num": 18,
+        "title": "Malédiction !",
+        "isbn": "9782800146928",
+        "publishedAt": "2010-05-07",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-079588-081190.jpg"
+      },
+      {
+        "num": 19,
+        "title": "L'elixir de jouvence",
+        "isbn": "9782800149943",
+        "publishedAt": "2011-04-01",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-098656-102670.jpg"
+      },
+      {
+        "num": 20,
+        "title": "Envoûtement",
+        "isbn": "9782800154039",
+        "publishedAt": "2012-05-04",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-130383-135799.jpg"
+      },
+      {
+        "num": 21,
+        "title": "Le tournoi de magie",
+        "isbn": "9782800156798",
+        "publishedAt": "2013-05-03",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-156961-163709.jpg"
+      },
+      {
+        "num": 22,
+        "title": "Cancrelune",
+        "isbn": "9782800160306",
+        "publishedAt": "2014-04-11",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-179083-187549.jpg"
+      },
+      {
+        "num": 23,
+        "title": "Fées contre sorciers",
+        "isbn": "9782800162744",
+        "publishedAt": "2015-03-13",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-202562-213547.jpg"
+      },
+      {
+        "num": 24,
+        "title": "La ville fantôme",
+        "isbn": "9782800166971",
+        "publishedAt": "2016-06-03",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-231335-244595.jpg"
+      },
+      {
+        "num": 25,
+        "title": "L'année du dragon",
+        "isbn": "9782800170305",
+        "publishedAt": "2017-05-05",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-249638-264148.jpg"
+      },
+      {
+        "num": 26,
+        "title": "En rose et noir",
+        "isbn": "9782800174082",
+        "publishedAt": "2018-05-04",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-272210-288056.jpg"
+      },
+      {
+        "num": 27,
+        "title": "La guerre sans magie",
+        "isbn": "9791034736881",
+        "publishedAt": "2019-04-26",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-302219-318795.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:21046",
+    "name": "Les Chevaliers d'Emeraude",
+    "genre": "Héroic - Fantasy",
+    "total": 5,
+    "ongoing": false,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-110372-114798.jpg",
+    "tomes": [
+      {
+        "num": 1,
+        "title": "Les enfants magiques",
+        "isbn": "9782203040069",
+        "publishedAt": "2011-08-31",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-110372-114798.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Les enfants magiques - TL",
+        "isbn": "9782203047327",
+        "publishedAt": "2011-08-31",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-111096-115542.jpg"
+      },
+      {
+        "num": 2,
+        "title": "L'épreuve du magicien",
+        "isbn": "9782203047266",
+        "publishedAt": "2012-06-20",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-133180-138755.jpg"
+      },
+      {
+        "num": 3,
+        "title": "L'imposteur",
+        "isbn": "9782203068209",
+        "publishedAt": "2013-01-23",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-149094-155295.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Le garçon foudre",
+        "isbn": "9782203072657",
+        "publishedAt": "2013-11-27",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-168819-176759.jpg"
+      },
+      {
+        "num": 5,
+        "title": "La première invasion",
+        "isbn": "9782203081369",
+        "publishedAt": "2015-10-21",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-215179-227175.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:16258",
+    "name": "Amulet",
+    "genre": "Aventures Fantastiques",
+    "total": 9,
+    "ongoing": false,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-068520-069137.jpg",
+    "tomes": [
+      {
+        "num": 1,
+        "title": "Le gardien de la pierre",
+        "isbn": "9782355740282",
+        "publishedAt": "2008-10-01",
+        "publisher": "Akileos",
+        "cover": "https://www.bdovore.com/images/couv/CV-068520-069137.jpg"
+      },
+      {
+        "num": 2,
+        "title": "La malédiction du gardien de la pierre",
+        "isbn": "9782355740497",
+        "publishedAt": "2009-09-17",
+        "publisher": "Akileos",
+        "cover": "https://www.bdovore.com/images/couv/CV-072619-073416.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Les chercheurs de nuages",
+        "isbn": "9782355740718",
+        "publishedAt": "2010-11-04",
+        "publisher": "Akileos",
+        "cover": "https://www.bdovore.com/images/couv/CV-089957-092553.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Le dernier conseil",
+        "isbn": "9782355740923",
+        "publishedAt": "2011-10-06",
+        "publisher": "Akileos",
+        "cover": "https://www.bdovore.com/images/couv/CV-114926-119504.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Prince des elfes",
+        "isbn": "9782355741173",
+        "publishedAt": "2012-10-18",
+        "publisher": "Akileos",
+        "cover": "https://www.bdovore.com/images/couv/CV-142558-148547.jpg"
+      },
+      {
+        "num": 6,
+        "title": "L'évasion",
+        "isbn": "9782355741531",
+        "publishedAt": "2014-09-25",
+        "publisher": "Akileos",
+        "cover": "https://www.bdovore.com/images/couv/CV-192792-201801.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Feu et lumière",
+        "isbn": "9782355742576",
+        "publishedAt": "2016-04-28",
+        "publisher": "Akileos",
+        "cover": "https://www.bdovore.com/images/couv/CV-230790-244015.jpg"
+      },
+      {
+        "num": 8,
+        "title": "Supernova",
+        "isbn": "9782355743566",
+        "publishedAt": "2018-10-17",
+        "publisher": "Akileos",
+        "cover": "https://www.bdovore.com/images/couv/CV-279642-295677.jpg"
+      },
+      {
+        "num": 9,
+        "title": "Navigateurs",
+        "isbn": "9782355746840",
+        "publishedAt": "2024-05-02",
+        "publisher": "Akileos",
+        "cover": "https://www.bdovore.com/images/couv/CV-379306-400209.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:227",
+    "name": "Bone",
+    "genre": "Aventures Humoristiques",
+    "total": 11,
+    "ongoing": false,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-003896-002469.jpg",
+    "tomes": [
+      {
+        "num": 0,
+        "title": "Coffret Bone, Tomes 1 à 4",
+        "isbn": "9782840553991",
+        "publishedAt": "1999-10-01",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003897-002470.jpg"
+      },
+      {
+        "num": 0,
+        "title": "Coffret Bone, Tomes 5-6-7-8",
+        "isbn": "9782840558033",
+        "publishedAt": "2002-01-01",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003898-002471.jpg"
+      },
+      {
+        "num": 0,
+        "title": "Coffret Bone, Tomes 9 à 11",
+        "isbn": "9782847896824",
+        "publishedAt": "2005-02-08",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-047490-046869.jpg"
+      },
+      {
+        "num": 0,
+        "title": "Le projet Bone",
+        "isbn": "9782895439189",
+        "publishedAt": "2010-02-22",
+        "publisher": "Presses Aventure",
+        "cover": "https://www.bdovore.com/images/couv/CV-078475-079935.jpg"
+      },
+      {
+        "num": 0,
+        "title": "Intégrale Bone",
+        "isbn": "9782756073354",
+        "publishedAt": "2015-11-12",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-216656-228820.jpg"
+      },
+      {
+        "num": 1,
+        "title": "La forêt sans retour",
+        "isbn": "9782840550631",
+        "publishedAt": "1995-09-01",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003896-002469.jpg"
+      },
+      {
+        "num": 2,
+        "title": "La grande course",
+        "isbn": "9782840550945",
+        "publishedAt": "1996-04-00",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003899-002472.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Rêves et cauchemars",
+        "isbn": "9782840551034",
+        "publishedAt": "1996-09-01",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003900-002473.jpg"
+      },
+      {
+        "num": 4,
+        "title": "La nuit des rats garous",
+        "isbn": "9782840551331",
+        "publishedAt": "1997-03-01",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003901-002474.jpg"
+      },
+      {
+        "num": 5,
+        "title": "Le pourfendeur de dragons",
+        "isbn": "9782840551782",
+        "publishedAt": "1998-02-01",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003902-002475.jpg"
+      },
+      {
+        "num": 6,
+        "title": "Le feu de la Saint Jean",
+        "isbn": "9782840552093",
+        "publishedAt": "1998-08-00",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003903-002476.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Le seigneur des marches de l'est",
+        "isbn": "9782840552680",
+        "publishedAt": "1999-02-01",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003904-002477.jpg"
+      },
+      {
+        "num": 8,
+        "title": "La caverne du vieil homme",
+        "isbn": "9782840554080",
+        "publishedAt": "2000-02-01",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003905-002478.jpg"
+      },
+      {
+        "num": 9,
+        "title": "Les cercles fantômes",
+        "isbn": "9782840557036",
+        "publishedAt": "2002-01-01",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003906-002479.jpg"
+      },
+      {
+        "num": 10,
+        "title": "Chasseurs de trésor",
+        "isbn": "9782847890822",
+        "publishedAt": "2003-02-00",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-003907-002480.jpg"
+      },
+      {
+        "num": 11,
+        "title": "La couronne d'aiguilles",
+        "isbn": "9782847894912",
+        "publishedAt": "2005-02-09",
+        "publisher": "Delcourt",
+        "cover": "https://www.bdovore.com/images/couv/CV-028654-024839.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:19793",
+    "name": "La balade de Yaya",
+    "genre": "Manhua",
+    "total": 9,
+    "ongoing": false,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-096441-100120.jpg",
+    "tomes": [
+      {
+        "num": 0,
+        "title": "Intégrale La balade de Yaya, Tomes 1 à 3",
+        "isbn": "9782359660852",
+        "publishedAt": "2012-09-14",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-140310-146152.jpg"
+      },
+      {
+        "num": 0,
+        "title": "Intégrale La balade de Yaya, Tomes 4 à 6",
+        "isbn": "9782359660869",
+        "publishedAt": "2013-03-01",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-152259-158616.jpg"
+      },
+      {
+        "num": 1,
+        "title": "La fugue",
+        "isbn": "9782359660258",
+        "publishedAt": "2011-01-13",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-096441-100120.jpg"
+      },
+      {
+        "num": 2,
+        "title": "La prisonnière",
+        "isbn": "9782359660265",
+        "publishedAt": "2011-07-01",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-108067-112430.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Le cirque",
+        "isbn": "9782359660272",
+        "publishedAt": "2011-11-10",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-118143-122884.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Intégrale La balade de Yaya, Tomes 7 à 9",
+        "isbn": "9782359660876",
+        "publishedAt": "2015-04-07",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-205978-217097.jpg"
+      },
+      {
+        "num": 4,
+        "title": "L'île",
+        "isbn": "9782359660289",
+        "publishedAt": "2012-02-17",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-124996-130130.jpg"
+      },
+      {
+        "num": 5,
+        "title": "La promesse",
+        "isbn": "9782359660296",
+        "publishedAt": "2012-06-08",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-133503-139082.jpg"
+      },
+      {
+        "num": 6,
+        "title": "Perdue",
+        "isbn": "9782359660302",
+        "publishedAt": "2012-11-09",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-144029-150072.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Le piège",
+        "isbn": "9782359660319",
+        "publishedAt": "2013-05-24",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-159262-166202.jpg"
+      },
+      {
+        "num": 8,
+        "title": "Le retour",
+        "isbn": "9782359660326",
+        "publishedAt": "2014-10-24",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-188888-197756.jpg"
+      },
+      {
+        "num": 9,
+        "title": "La sonate",
+        "isbn": "9782359660333",
+        "publishedAt": "2015-04-24",
+        "publisher": "Fei",
+        "cover": "https://www.bdovore.com/images/couv/CV-202702-213693.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:28628",
+    "name": "Le château des étoiles",
+    "genre": "Aventure",
+    "total": 7,
+    "ongoing": true,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-190124-199045.jpg",
+    "tomes": [
+      {
+        "num": 0,
+        "title": "Une année dans le Château des étoiles",
+        "isbn": "9782369814214",
+        "publishedAt": "2016-11-09",
+        "publisher": null,
+        "cover": "https://www.bdovore.com/images/couv/CV-242911-256696.jpg"
+      },
+      {
+        "num": 0,
+        "title": "Coffret Le château des étoiles, Tomes 5 et 6",
+        "isbn": "9782810204793",
+        "publishedAt": "2022-11-02",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-360997-380794.jpg"
+      },
+      {
+        "num": 1,
+        "title": "1869 : la conquête de l'espace (1/2)",
+        "isbn": "9782369810131",
+        "publishedAt": "2014-09-24",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-190124-199045.jpg"
+      },
+      {
+        "num": 1,
+        "title": "1809 : la conquête de l'espace (1/2) - TL",
+        "isbn": "9782369810155",
+        "publishedAt": "2014-09-24",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-190385-199314.jpg"
+      },
+      {
+        "num": 1,
+        "title": "Intégrale Le château des étoiles, Tomes 1 et 2",
+        "isbn": "9782810208784",
+        "publishedAt": "2024-09-18",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-382591-403576.jpg"
+      },
+      {
+        "num": 2,
+        "title": "1869: la conquête de l'espace",
+        "isbn": "9782369810148",
+        "publishedAt": "2015-09-16",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-213780-225710.jpg"
+      },
+      {
+        "num": 2,
+        "title": "1869: la conquête de l'espace - TL",
+        "isbn": "9782369812050",
+        "publishedAt": "2015-09-16",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-213781-225711.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Intégrale Le château des étoiles, Tomes 3 et 4",
+        "isbn": "9782810211265",
+        "publishedAt": "2025-10-01",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-395519-417109.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Les chevaliers de Mars",
+        "isbn": "9782369814719",
+        "publishedAt": "2017-04-26",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-248901-263358.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Les chevaliers de Mars - TL",
+        "isbn": "9782369816164",
+        "publishedAt": "2017-11-08",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-262475-278088.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Un Français sur Mars",
+        "isbn": "9782369814184",
+        "publishedAt": "2018-09-19",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-279083-295085.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Un Français sur Mars  - TL",
+        "isbn": "9782369816478",
+        "publishedAt": "2018-09-19",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-279641-295676.jpg"
+      },
+      {
+        "num": 5,
+        "title": "De Mars à Paris",
+        "isbn": "9782810204700",
+        "publishedAt": "2020-06-10",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-334011-352159.jpg"
+      },
+      {
+        "num": 5,
+        "title": "De Mars à Paris - TL",
+        "isbn": "9782810214464",
+        "publishedAt": "2020-06-10",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-334012-352160.jpg"
+      },
+      {
+        "num": 6,
+        "title": "L'exposition interplanétaire de 1875",
+        "isbn": "9782810201419",
+        "publishedAt": "2021-09-29",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-352260-371239.jpg"
+      },
+      {
+        "num": 6,
+        "title": "L'exposition interplanétaire de 1875 - TL",
+        "isbn": null,
+        "publishedAt": "2021-09-29",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-352261-371240.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Planète des brumes",
+        "isbn": "9782810208241",
+        "publishedAt": "2024-10-23",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-383353-404364.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Planète des brumes - TL",
+        "isbn": "9782810209248",
+        "publishedAt": "2024-10-23",
+        "publisher": "Rue de Sèvres",
+        "cover": "https://www.bdovore.com/images/couv/CV-384267-405331.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:42257",
+    "name": "Les Dragouilles",
+    "genre": "Humour",
+    "total": 1,
+    "ongoing": true,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-295893-312379.jpg",
+    "tomes": [
+      {
+        "num": 1,
+        "title": "Patate toujours !",
+        "isbn": "9782875806567",
+        "publishedAt": "2019-02-06",
+        "publisher": "Kennes éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-295893-312379.jpg"
+      }
+    ]
   }
 ]
