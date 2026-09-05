@@ -90,5 +90,6 @@
   { "name": "Le Château des Étoiles" },
   { "name": "Les Dragouilles" },
   { "name": "Anatole Latuile" },
-  { "name": "Avni" }
+  { "name": "Avni" },
+  { "name": "Emile et Margot", "id_serie": 27964 }
 ]

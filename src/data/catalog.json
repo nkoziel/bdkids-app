@@ -1547,7 +1547,7 @@
     "id": "bdovore:2396",
     "name": "Kid Paddle",
     "genre": "Jeunesse",
-    "total": 21,
+    "total": 22,
     "ongoing": true,
     "description": null,
     "cover": "https://www.bdovore.com/images/couv/CV-013156-094355.jpg",
@@ -1871,6 +1871,14 @@
         "publishedAt": "2025-10-24",
         "publisher": "Dupuis",
         "cover": "https://www.bdovore.com/images/couv/CV-395096-416669.jpg"
+      },
+      {
+        "num": 22,
+        "title": "Ice scream",
+        "isbn": "9782808514903",
+        "publishedAt": "2026-10-30",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-420281-443150.jpg"
       }
     ]
   },
@@ -9175,7 +9183,7 @@
     "id": "bdovore:57",
     "name": "Alix",
     "genre": "Aventures Historiques",
-    "total": 44,
+    "total": 45,
     "ongoing": true,
     "description": "<p>Tirages de tête et tirages limités se retrouvent dans&nbsp;<a href=\"https://www.bdovore.com/serie-bd-41273-alix-tirages-de-tete-et-tirages-limites\">Alix (Tirages de tête et Tirages Limités)</a></p>",
     "cover": "https://www.bdovore.com/images/couv/CV-008788-095472.jpg",
@@ -9563,6 +9571,14 @@
         "publishedAt": "2025-04-02",
         "publisher": "Casterman",
         "cover": "https://www.bdovore.com/images/couv/CV-388441-409720.jpg"
+      },
+      {
+        "num": 45,
+        "title": "Le secret de César",
+        "isbn": "9782203292970",
+        "publishedAt": "2026-10-14",
+        "publisher": "Casterman",
+        "cover": "https://www.bdovore.com/images/couv/CV-420319-443189.jpg"
       }
     ]
   },
@@ -10782,7 +10798,7 @@
     "id": "bdovore:11850",
     "name": "Petit poilu",
     "genre": "Jeunesse",
-    "total": 33,
+    "total": 34,
     "ongoing": true,
     "description": null,
     "cover": "https://www.bdovore.com/images/couv/CV-044099-043260.jpg",
@@ -11058,6 +11074,14 @@
         "publishedAt": "2026-04-24",
         "publisher": "Dupuis",
         "cover": "https://www.bdovore.com/images/couv/CV-402512-424522.jpg"
+      },
+      {
+        "num": 34,
+        "title": "Neige à gogo !",
+        "isbn": "9782808514590",
+        "publishedAt": "2026-11-06",
+        "publisher": "Dupuis",
+        "cover": "https://www.bdovore.com/images/couv/CV-420283-443152.jpg"
       }
     ]
   },
@@ -16280,7 +16304,7 @@
         "isbn": null,
         "publishedAt": "1980-05-01",
         "publisher": "Denoël",
-        "cover": "https://www.bdovore.com/images/couv/CV-017944-01.jpg"
+        "cover": "https://www.bdovore.com/images/couv/CV-017944-013938.jpg"
       },
       {
         "num": 2,
@@ -16293,26 +16317,26 @@
       {
         "num": 3,
         "title": "Les vacances du petit Nicolas",
-        "isbn": null,
+        "isbn": "9782070392629",
         "publishedAt": "1981-07-01",
         "publisher": "Denoël",
-        "cover": "https://www.bdovore.com/images/couv/CV-017945-01.jpg"
+        "cover": "https://www.bdovore.com/images/couv/CV-017945-013939.jpg"
       },
       {
         "num": 4,
         "title": "Le petit Nicolas et les copains",
-        "isbn": null,
+        "isbn": "2070392600",
         "publishedAt": "1982-02-01",
-        "publisher": "Denoël",
-        "cover": "https://www.bdovore.com/images/couv/CV-017946-01.jpg"
+        "publisher": "Folio",
+        "cover": "https://www.bdovore.com/images/couv/CV-017946-013940.jpg"
       },
       {
         "num": 5,
         "title": "Le petit Nicolas a des ennuis",
-        "isbn": null,
+        "isbn": "9782070334445",
         "publishedAt": "1997-05-01",
-        "publisher": "Denoël",
-        "cover": "https://www.bdovore.com/images/couv/CV-017947-01.jpg"
+        "publisher": "Folio",
+        "cover": "https://www.bdovore.com/images/couv/CV-017947-013941.jpg"
       },
       {
         "num": 5,
@@ -17827,6 +17851,145 @@
         "publishedAt": "2024-09-18",
         "publisher": "Bayard Éditions",
         "cover": "https://www.bdovore.com/images/couv/CV-382600-403585.jpg"
+      }
+    ]
+  },
+  {
+    "id": "bdovore:27964",
+    "name": "Emile et Margot",
+    "genre": "Jeunesse",
+    "total": 16,
+    "ongoing": true,
+    "description": null,
+    "cover": "https://www.bdovore.com/images/couv/CV-175627-183904.jpg",
+    "tomes": [
+      {
+        "num": 1,
+        "title": "Interdit aux monstres",
+        "isbn": "9782747035415",
+        "publishedAt": "2011-04-13",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-175627-183904.jpg"
+      },
+      {
+        "num": 2,
+        "title": "Monstrueuses bêtises !",
+        "isbn": "9782747039796",
+        "publishedAt": "2012-02-01",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-175626-183903.jpg"
+      },
+      {
+        "num": 3,
+        "title": "Un bazar monstre !",
+        "isbn": "9782747046237",
+        "publishedAt": "2013-03-13",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-175625-183902.jpg"
+      },
+      {
+        "num": 4,
+        "title": "Merci, les monstres !",
+        "isbn": "9782747049627",
+        "publishedAt": "2014-01-29",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-175624-183901.jpg"
+      },
+      {
+        "num": 5,
+        "title": "L'envers du décor",
+        "isbn": "9782747055536",
+        "publishedAt": "2015-04-15",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-206482-217643.jpg"
+      },
+      {
+        "num": 6,
+        "title": "Ils sont partout !",
+        "isbn": "9782747059237",
+        "publishedAt": "2016-02-03",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-222092-234645.jpg"
+      },
+      {
+        "num": 7,
+        "title": "Monstres en folie !",
+        "isbn": "9782747072397",
+        "publishedAt": "2017-02-15",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-247018-261320.jpg"
+      },
+      {
+        "num": 8,
+        "title": "Monstres en vue ",
+        "isbn": "9782747085946",
+        "publishedAt": "2018-02-07",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-375877-396628.jpg"
+      },
+      {
+        "num": 9,
+        "title": "Même pas peur ! ",
+        "isbn": "9791036305375",
+        "publishedAt": "2019-02-06",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-375878-396629.jpg"
+      },
+      {
+        "num": 10,
+        "title": "Expédition surprise",
+        "isbn": "9791036314889",
+        "publishedAt": "2020-04-01",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-361161-380989.jpg"
+      },
+      {
+        "num": 11,
+        "title": "C'est pas gagné ! ",
+        "isbn": "9791036325489",
+        "publishedAt": "2021-04-21",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-375879-396630.jpg"
+      },
+      {
+        "num": 12,
+        "title": "Champions de l'évasion",
+        "isbn": "9791036333125",
+        "publishedAt": "2022-06-15",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-375850-396601.jpg"
+      },
+      {
+        "num": 13,
+        "title": "Monstres en pagaille",
+        "isbn": "9791036348020",
+        "publishedAt": "2023-06-21",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-375880-396631.jpg"
+      },
+      {
+        "num": 14,
+        "title": "En avant la musique !",
+        "isbn": "9791036362354",
+        "publishedAt": "2024-06-05",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-379641-400575.jpg"
+      },
+      {
+        "num": 15,
+        "title": "La tête dans les nuages !",
+        "isbn": "9791036372247",
+        "publishedAt": "2025-06-11",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-389570-410893.jpg"
+      },
+      {
+        "num": 16,
+        "title": "Cap sur les Monstrîles",
+        "isbn": "9791036390029",
+        "publishedAt": "2026-06-17",
+        "publisher": "Bayard Éditions",
+        "cover": "https://www.bdovore.com/images/couv/CV-411666-433866.jpg"
       }
     ]
   }
